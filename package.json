@@ -1,31 +1,56 @@
 {
-  "name": "paper-kit-react",
-  "version": "1.3.0",
+  "name": "material-dashboard-react",
+  "version": "1.10.0",
+  "description": "Material Dashboard React. Coded by Creative Tim",
+  "private": false,
+  "main": "dist/index.js",
   "dependencies": {
-    "classnames": "2.2.6",
-    "moment": "2.29.1",
-    "node-sass": "5.0.0",
-    "nouislider": "14.6.4",
+    "@material-ui/core": "4.11.4",
+    "@material-ui/icons": "4.11.2",
+    "chartist": "0.10.1",
+    "classnames": "2.3.1",
+    "history": "5.0.0",
+    "perfect-scrollbar": "1.5.1",
+    "prop-types": "15.7.2",
     "react": "17.0.2",
-    "react-datetime": "3.0.4",
+    "react-chartist": "0.14.4",
     "react-dom": "17.0.2",
-    "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.3",
-    "reactstrap": "8.9.0"
+    "react-swipeable-views": "0.13.9"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && gulp licenses",
-    "test": "react-scripts test",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
-    "compile-sass": "node-sass src/assets/scss/paper-kit.scss src/assets/css/paper-kit.css",
-    "minify-sass": "node-sass src/assets/scss/paper-kit.scss src/assets/css/paper-kit.min.css --output-style compressed",
-    "map-sass": "node-sass src/assets/scss/paper-kit.scss src/assets/css/paper-kit.css --source-map true"
+    "lint:check": "eslint . --ext=js,jsx;  exit 0",
+    "lint:fix": "eslint . --ext=js,jsx --fix;  exit 0",
+    "build-package-css": "cp src/assets/css/material-dashboard-react.css dist/material-dashboard-react.css",
+    "build-package": "npm run build-package-css && babel src --out-dir dist"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creativetimofficial/material-dashboard-react.git"
+  },
+  "keywords": [],
+  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/creativetimofficial/material-dashboard-react/issues"
+  },
+  "homepage": "https://creativetimofficial.github.io/material-dashboard-react/#/dashboard",
+  "optionalDependencies": {
+    "@babel/core": "7.14.0",
+    "typescript": "4.2.4"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "gulp": "4.0.2",
+    "gulp-append-prepend": "1.0.9",
+    "prettier": "2.2.1"
   },
   "browserslist": {
     "production": [
@@ -33,49 +58,6 @@
       "not dead",
       "not op_mini all"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "optionalDependencies": {
-    "jquery": "3.6.0",
-    "typescript": "4.2.3"
-  },
-  "devDependencies": {
-    "bootstrap": "4.6.0",
-    "gulp": "4.0.2",
-    "gulp-append-prepend": "1.0.8"
-  },
-  "description": "Paper Kit React is a free Bootstrap 4, React, React Hooks and Reactstrap UI Kit with pale colors, beautiful typography and thoughtful drawings. We've created it having paper and drawings in mind.",
-  "main": "src/assets/scss/paper-kit.scss",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/creativetimofficial/paper-kit-react.git"
-  },
-  "keywords": [
-    "react",
-    "reactstrap",
-    "reactjs",
-    "paper-kit",
-    "paper-kit-react",
-    "paper-kit-2",
-    "paper-kit2",
-    "paper-design",
-    "hook",
-    "hooks",
-    "react-hook",
-    "react-hooks",
-    "template",
-    "theme",
-    "react-template",
-    "react-theme"
-  ],
-  "author": "Creative Tim",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/creativetimofficial/paper-kit-react/issues"
-  },
-  "homepage": "https://demos.creative-tim.com/paper-kit-react/#/index"
+    "development": []
+  }
 }
