@@ -1,37 +1,25 @@
-# [Paper Kit React - Free Bootstrap 4, React, React Hooks and Reactstrap UI Kit](https://demos.creative-tim.com/paper-kit-react/#/index?ref=pkr-github-readme) ![version](https://img.shields.io/badge/version-1.3.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/material-kit.svg?maxAge=2592000)](https://github.com/creativetimofficial/paper-kit-react/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/paper-kit-react.svg?maxAge=2592000)](https://github.com/creativetimofficial/paper-kit-react/issues?q=is%3Aissue+is%3Aclosed) [![Join the chat at https://gitter.im/NIT-dgp/General](https://badges.gitter.im/NIT-dgp/General.svg)](https://gitter.im/creative-tim-general/Lobby) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
-
-![Paper Kit React](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/paper-kit-react/opt_pk_react_thumbnail.jpg)
-
-Paper Kit React is a free Bootstrap 4, React, React Hooks and Reactstrap UI Kit with pale colors, beautiful typography and thoughtful drawings. We've created it having paper and drawings in mind.
-
-Any elements that is vital to code a web project is already here, fully coded. All components are fully responsive and look great on every screen size. Transitions, shadows, colors, they all resemble the flow you would have using pieces of paper.
-
-We have created the UI Kit kit having pastel colors and paper in mind. It feels light, fresh and easy to go through. It features beautiful typography, font icons and thoughtful layouts.
+# [Material Dashboard React](https://demos.creative-tim.com/material-dashboard-react/#/dashboard) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fcreativetimofficial.github.io%2Fmaterial-dashboard-react&text=Material%20Dashboard%20React%20-%20Free%20Bootstrap%20Admin%20Template&original_referer=https%3A%2F%2Fdemos.creative-tim.com%2Fmaterial-dashboard-react%2F%3F_ga%3D2.10428917.198078103.1532329372-1803433978.1528781151&via=creativetim&hashtags=react%2Cmaterial-ui)
 
 
-### React Hooks support
 
-Paper Kit React is built on top of Bootstrap 4 using React and Reactstrap, so it fully supports React Hooks.
+![version](https://img.shields.io/badge/version-1.10.0-blue.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/material-dashboard-react.svg?maxAge=2592000)]() [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/material-dashboard-react.svg?maxAge=2592000)]() [![Join the chat at https://gitter.im/NIT-dgp/General](https://badges.gitter.im/NIT-dgp/General.svg)](https://gitter.im/creative-tim/material-dashboard?utm_source=share-link&utm_medium=link&utm_campaign=share-link) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
 
+![Product Gif](src/assets/github/md-react.gif)
 
-### Bootstrap 4 support
+Material Dashboard React is a free Material-UI Admin with a fresh, new design inspired by Google's Material Design. We are very excited to introduce our take on the material concepts through an easy to use and beautiful set of components. Material Dashboard React was built over the popular Material-UI framework.
 
-Paper Kit React is built on top of Bootstrap 4 using React and Reactstrap, so it fully supports them. Most of the elements from the framework are re-designed to resemble sheets of paper and color pastels. If the are elements that we have not touched, they will gracefully fall back to the Bootstrap 4 default.
+Material Dashboard React makes use of light, surface and movement. The general layout resembles sheets of paper following multiple different layers, so that the depth and order is obvious. The navigation stays mainly on the left sidebar and the content is on the right inside the main panel.
 
+Material Dashboard React comes with 5 color filter choices for both the sidebar and the card headers (blue, green, orange, red and purple) and an option to have a background image on the sidebar.
 
-### Examples
+Material Dashboard React was created using [create-react-app](https://github.com/facebook/create-react-app) and it uses a framework built by our friend [Olivier - Material-UI v3.1.0](https://github.com/mui-org/material-ui), who did an amazing job creating the backbone for the material effects, animations, ripples and transitions. Big thanks to his team for the effort and forward thinking they put into it.
 
-Paper Kit React contains some pages already designed and implemented. Here is the list with the pages available. We are also working on more example pages, that you will be able to access no matter the version you download.
+Special thanks go to:
++ [React-chartist](https://github.com/fraserxu/react-chartist) for the wonderful charts.
 
+We are very excited to share this dashboard with you and we look forward to hearing your feedback!
 
-* [Landing Page](https://demos.creative-tim.com/paper-kit-react/#/landing-page?ref=pkr-github-readme)
-* [Register](https://demos.creative-tim.com/paper-kit-react/#/register-page?ref=pkr-github-readme)
-* [Profile Page](https://demos.creative-tim.com/paper-kit-react/#/profile-page?ref=pkr-github-readme)
-
-Tutorial and components
-
-Once you download the archive, you will be able find a tutorial page inside it explaining how to start using it. You can also check the [documentation online](https://demos.creative-tim.com/paper-kit-react/#/documentation/introduction?ref=pkr-github-readme).
-
+You can find the Github Repo here.
 
 ## Table of Contents
 
@@ -43,45 +31,68 @@ Once you download the archive, you will be able find a tutorial page inside it e
 * [Browser Support](#browser-support)
 * [Resources](#resources)
 * [Reporting Issues](#reporting-issues)
+* [Technical Support or Questions](#technical-support-or-questions)
 * [Licensing](#licensing)
 * [Useful Links](#useful-links)
 
+
 ## Versions
 
-| HTML | Angular | React |
-| --- | --- | --- |
-| [![Paper Kit 2 HTML](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/paper-kit-2-html/opt_pk2_thumbnail.jpg)](https://www.creative-tim.com/product/paper-kit-2?ref=pkr-github-readme)  | [![Paper Kit 2 Angular](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/paper-kit-2-angular/opt_pk2_angular_thumbnail.jpg)](https://www.creative-tim.com/product/paper-kit-2-angular?ref=pkr-github-readme)  | [![Paper Kit  React](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/paper-kit-react/opt_pk_react_thumbnail.jpg)](https://www.creative-tim.com/product/paper-kit-react?ref=pkr-github-readme)  
+[<img src="src/assets/github/html.png" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard)
+[<img src="src/assets/github/react.svg" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-react)
+[<img src="src/assets/github/vuejs.png" width="60" height="60" />](https://www.creative-tim.com/product/vue-material-dashboard)
+[<img src="src/assets/github/angular.png" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-angular2)
 
-| Register Page | Landing Page | Profile Page  |
-| --- | --- | ---  |
-| [![Register Page](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/paper-kit-react/register.png)](https://demos.creative-tim.com/paper-kit-react/#/register-page?ref=pkr-github-readme)  | [![Landing Page](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/paper-kit-react/landing.png)](https://demos.creative-tim.com/paper-kit-react/#/landing-page?ref=pkr-github-readme)  | [![Profile Page](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/paper-kit-react/profile.png)](https://demos.creative-tim.com/paper-kit-react/#/profile-page?ref=pkr-github-readme)  
 
-[View More](https://demos.creative-tim.com/paper-kit-react/#/index?ref=pkr-github-readme)
+| HTML | React | Vue | Angular |
+| --- | --- | --- | --- |
+| [![Material Dashboard HTML](src/assets/github/opt_md_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard) | [![Material Dashboard React](src/assets/github/opt_mdr_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard-react) | [![Vue Material Dashboard ](src/assets/github/opt_md_vue_thumbnail.jpg)](https://www.creative-tim.com/product/vue-material-dashboard) | [![Material Dashboard Angular](src/assets/github/opt_md_angular_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard-angular2)
+
+## Demo
+
+| Dashboard | User Profile | Tables | Maps | Notification |
+| --- | --- | --- | --- | --- |
+| [![Start page](src/assets/github/dashboard.png)](https://demos.creative-tim.com/material-dashboard-react/#/dashboard) | [![User profile page](src/assets/github/user_profile.png)](https://demos.creative-tim.com/material-dashboard-react/#/user) | [![Tables page ](src/assets/github/tables.png)](https://demos.creative-tim.com/material-dashboard-react/#/table) | [![Maps Page](src/assets/github/maps.png)](https://demos.creative-tim.com/material-dashboard-react/#/maps) | [![Notification page](src/assets/github/notification.png)](https://demos.creative-tim.com/material-dashboard-react/#/notifications)
+
+[View More](https://demos.creative-tim.com/material-dashboard-react/#/dashboard).
+
 
 ## Quick start
 
-1.  Download the project's zip
-2.  Make sure you have node.js (<https://nodejs.org/en/>) installed
-3.  Type `npm install` in terminal/console in the source folder where `package.json` is located
-4.  You will find all the branding colors inside `src/assets/scss/paper-kit/_variables.scss`. You can change them with a `HEX` value or with other predefined variables.
-5.  Run in terminal `npm start`.
+Quick start options:
+
+- `npm i material-dashboard-react`
+- Clone the repo: `git clone https://github.com/creativetimofficial/material-dashboard-react.git`.
+- [Download from Github](https://github.com/creativetimofficial/material-dashboard-react/archive/main.zip).
+- [Download from Creative Tim](https://www.creative-tim.com/product/material-dashboard-react).
+
 
 ## Documentation
-The documentation for the Paper Kit React is hosted at our [website](https://demos.creative-tim.com/paper-kit-react/#/documentation/introduction?ref=pkr-github-readme).
+The documentation for the Material Dashboard React is hosted at our [website](https://demos.creative-tim.com/material-dashboard-react/#/documentation/tutorial).
 
 
 ## File Structure
 
 Within the download you'll find the following directories and files:
+
 ```
-paper-kit-react
+material-dashboard-react
 .
 ├── CHANGELOG.md
 ├── ISSUE_TEMPLATE.md
 ├── LICENSE.md
 ├── README.md
+├── bower.json
+├── gulpfile.js
 ├── jsconfig.json
 ├── package.json
+├── documentation
+│   ├── assets
+│   │   ├── css
+│   │   ├── img
+│   │   │   └── faces
+│   │   └── js
+│   └── tutorial-components.html
 ├── public
 │   ├── favicon.ico
 │   ├── index.html
@@ -89,111 +100,133 @@ paper-kit-react
 └── src
     ├── index.js
     ├── logo.svg
+    ├── routes.js
     ├── assets
     │   ├── css
-    │   │   ├── bootstrap.min.css
-    │   │   └── bootstrap.min.css.map
-    │   ├── demo
-    │   │   └── demo.css
-    │   ├── fonts
+    │   │   └── material-dashboard-react.css
+    │   ├── github
+    │   │   ├── md-react.gif
+    │   │   └── react.svg
     │   ├── img
-    │   │   ├── examples
-    │   │   ├── faces
-    │   │   ├── flags
-    │   └── scss
-    │       ├── paper-kit
-    │       │   ├── cards
-    │       │   ├── mixins
-    │       │   └── plugins
-    │       ├── react
-    │       │   ├── paper-kit
-    │       │   ├── plugins
-    │       │   └── react-differences.scss
-    │       └── paper-kit.scss
+    │   │   └── faces
+    │   └── jss
+    │       ├── material-dashboard-react
+    │       │   ├── components
+    │       │   ├── layouts
+    │       │   └── views
+    │       └── material-dashboard-react.js
     ├── components
-    │   ├── Footers
-    │   │   └── DemoFooter.js
-    │   ├── Headers
-    │   │   ├── IndexHeader.js
-    │   │   ├── LandingPageHeader.js
-    │   │   └── ProfilePageHeader.js
-    │   └── Navbars
-    │       ├── ExamplesNavbar.js
-    │       └── IndexNavbar.js
+    │   ├── Card
+    │   │   ├── Card.js
+    │   │   ├── CardAvatar.js
+    │   │   ├── CardBody.js
+    │   │   ├── CardFooter.js
+    │   │   ├── CardHeader.js
+    │   │   └── CardIcon.js
+    │   ├── CustomButtons
+    │   │   └── Button.js
+    │   ├── CustomInput
+    │   │   └── CustomInput.js
+    │   ├── CustomTabs
+    │   │   └── CustomTabs.js
+    │   ├── FixedPlugin
+    │   │   └── FixedPlugin.js
+    │   ├── Footer
+    │   │   └── Footer.js
+    │   ├── Grid
+    │   │   ├── GridContainer.js
+    │   │   └── GridItem.js
+    │   ├── Navbars
+    │   │   ├── AdminNavbarLinks.js
+    │   │   ├── Navbar.js
+    │   │   └── RTLNavbarLinks.js
+    │   ├── Sidebar
+    │   │   └── Sidebar.js
+    │   ├── Snackbar
+    │   │   ├── Snackbar.js
+    │   │   └── SnackbarContent.js
+    │   ├── Table
+    │   │   └── Table.js
+    │   ├── Tasks
+    │   │   └── Tasks.js
+    │   └── Typography
+    │       ├── Danger.js
+    │       ├── Info.js
+    │       ├── Muted.js
+    │       ├── Primary.js
+    │       ├── Quote.js
+    │       ├── Success.js
+    │       └── Warning.js
+    ├── layouts
+    │   ├── Admin.js
+    │   └── RTL.js
+    ├── variables
+    │   ├── charts.js
+    │   └── general.js
     └── views
-        ├── Index.js
-        ├── NucleoIcons.js
-        ├── examples
-        │   ├── LandingPage.js
-        │   ├── ProfilePage.js
-        │   └── RegisterPage.js
-        └── index-sections
-            ├── SectionButtons.js
-            ├── SectionCarousel.js
-            ├── SectionDark.js
-            ├── SectionDownload.js
-            ├── SectionExamples.js
-            ├── SectionJavaScript.js
-            ├── SectionLogin.js
-            ├── SectionNavbars.js
-            ├── SectionNavigation.js
-            ├── SectionNotifications.js
-            ├── SectionNucleoIcons.js
-            ├── SectionProgress.js
-            └── SectionTypography.js
+        ├── Dashboard
+        │   └── Dashboard.js
+        ├── Icons
+        │   └── Icons.js
+        ├── Maps
+        │   └── Maps.js
+        ├── Notifications
+        │   └── Notifications.js
+        ├── RTLPage
+        │   └── RTLPage.js
+        ├── TableList
+        │   └── TableList.js
+        ├── Typography
+        │   └── Typography.js
+        ├── UpgradeToPro
+        │   └── UpgradeToPro.js
+        └── UserProfile
+            └── UserProfile.js
 ```
 
 ## Browser Support
 
 At present, we officially aim to support the last two versions of the following browsers:
 
-<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/chrome-logo.png?raw=true" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/firefox-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/edge-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/safari-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/opera-logo.png" width="64" height="64">
+<img src="src/assets/github/chrome.png" width="64" height="64"> <img src="src/assets/github/firefox.png" width="64" height="64"> <img src="src/assets/github/edge.png" width="64" height="64"> <img src="src/assets/github/safari.png" width="64" height="64"> <img src="src/assets/github/opera.png" width="64" height="64">
 
 
 ## Resources
-- Demo: <http://demos.creative-tim.com/paper-kit-react/#/index?ref=pkr-github-readme>
-- Download Page: <https://www.creative-tim.com/product/paper-kit-react?ref=pkr-github-readme>
-- Documentation: <https://demos.creative-tim.com/paper-kit-react/#/documentation/introduction?ref=pkr-github-readme>
-- License Agreement: <https://www.creative-tim.com/license?ref=pkr-github-readme>
-- Support: <https://www.creative-tim.com/contact-us?ref=pkr-github-readme>
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/paper-kit-react/issues)
-
-
-**Dashboards:**
-
-| HTML | React | Vue  | Angular |
-| --- | --- | ---  | ---  |
-| [![Paper Dashboard  HTML](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/paper-dashboard-2-html/opt_pd2_thumbnail.jpg)](https://www.creative-tim.com/product/paper-dashboard-2?ref=pkr-github-readme) | [![Paper Dashboard  React](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/paper-dashboard-react/opt_pd_react_thumbnail.jpg)](https://www.creative-tim.com/product/paper-dashboard-pro-react?ref=pkr-github-readme) | [![Vue Paper Dashboard](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/vue-paper-dashboard/opt_pd_vue_thumbnail.jpg)](https://www.creative-tim.com/product/vue-paper-dashboard?ref=pkr-github-readme)  | [![ Paper Dashboard Angular](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/paper-kit-2-angular/opt_pk2_angular_thumbnail.jpg)](https://www.creative-tim.com/product/paper-dashboard-angular?ref=pkr-github-readme)
+- Demo: https://demos.creative-tim.com/material-dashboard-react
+- Download Page: https://www.creative-tim.com/product/material-dashboard-react
+- Documentation: https://demos.creative-tim.com/material-dashboard-react/#/documentation/tutorial
+- License Agreement: https://www.creative-tim.com/license
+- Support: https://www.creative-tim.com/contact-us
+- Issues: [Github Issues Page](https://github.com/creativetimofficial/material-dashboard-react/issues)
+- [Material Kit React - For Front End Development](https://www.creative-tim.com/product/material-kit-react?ref=github-mdr-free)
 
 ## Reporting Issues
+We use GitHub Issues as the official bug tracker for the Material Dashboard React. Here are some advices for our users that want to report an issue:
 
-We use GitHub Issues as the official bug tracker for the Paper Kit 2. Here are some advices for our users that want to report an issue:
-
-1. Make sure that you are using the latest version of the Paper Kit 2. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/?ref=pkr-github-readme).
+1. Make sure that you are using the latest version of the Material Dashboard React. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/).
 2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
 3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
 
+## Technical Support or Questions
+
+If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us) instead of opening an issue.
+
 ## Licensing
 
-- Copyright 2021 Creative Tim (https://www.creative-tim.com/?ref=pkr-github-readme)
-
-[CHANGELOG]: ./CHANGELOG.md
-[LICENSE]: ./LICENSE.md
+- Copyright 2021 Creative Tim (https://www.creative-tim.com)
+- Licensed under MIT (https://github.com/creativetimofficial/material-dashboard-react/blob/main/LICENSE.md)
 
 ## Useful Links
 
-- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
-- [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=pkr-github-readme) (earn money)
-- [Blog Creative Tim](http://blog.creative-tim.com/?ref=pkr-github-readme)
-- [Free Products](https://www.creative-tim.com/bootstrap-themes/free?ref=pkr-github-readme) from Creative Tim
-- [Premium Products](https://www.creative-tim.com/bootstrap-themes/premium?ref=pkr-github-readme) from Creative Tim
-- [React Products](https://www.creative-tim.com/bootstrap-themes/react-themes?ref=pkr-github-readme) from Creative Tim
-- [Angular Products](https://www.creative-tim.com/bootstrap-themes/angular-themes?ref=pkr-github-readme) from Creative Tim
-- [VueJS Products](https://www.creative-tim.com/bootstrap-themes/vuejs-themes?ref=pkr-github-readme) from Creative Tim
-- [More products](https://www.creative-tim.com/bootstrap-themes?ref=pkr-github-readme) from Creative Tim
-- Check our Bundles [here](https://www.creative-tim.com/bundles?ref=pkr-github-readme)
+More products from Creative Tim: <https://www.creative-tim.com/products>
 
-### Social Media
+Tutorials: <https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w>
+
+Freebies: <https://www.creative-tim.com/products>
+
+Affiliate Program (earn money): <https://www.creative-tim.com/affiliates/new>
+
+Social Media:
 
 Twitter: <https://twitter.com/CreativeTim>
 
@@ -201,4 +234,6 @@ Facebook: <https://www.facebook.com/CreativeTim>
 
 Dribbble: <https://dribbble.com/creativetim>
 
-Instagram: <https://www.instagram.com/CreativeTimOfficial>
+Google+: <https://plus.google.com/+CreativetimPage>
+
+Instagram: <https://instagram.com/creativetimofficial>
