@@ -47,22 +47,9 @@ export default function Admin({ ...rest }) {
   const mainPanel = React.createRef();
   // states and functions
   const [image] = React.useState(bgImage);
-  const [color] = React.useState("blue");
+  const [color] = React.useState("green");
   /* const [fixedClasses, setFixedClasses] = React.useState("dropdown show"); */
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  /* const handleImageClick = (image) => {
-    setImage(image);
-  }; */
-  /* const handleColorClick = (color) => {
-    setColor(color);
-  }; */
-  /* const handleFixedClick = () => {
-    if (fixedClasses === "dropdown") {
-      setFixedClasses("dropdown show");
-    } else {
-      setFixedClasses("dropdown");
-    }
-  }; */
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
