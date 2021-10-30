@@ -36,7 +36,6 @@ function funcion(){
                 <Button color="success" variant="contained" Type="submit" value="sumbit" onClick={()=>{
                     const u=getValues("usuario");
                     const c=getValues("contraseña");
-                    alert(u);
                     if(u==="Usuario" && c ==="1234")
                         ReactDOM.render(
                             <BrowserRouter>

@@ -39,12 +39,12 @@ import Typography from "views/Typography/Typography.js";
 
 const dashboardRoutes = [
   {
-    path: "/user",
+    path: "/profile",
     name: "Mi Perfil",
     rtlName: "ملف تعريفي للمستخدم",
     icon: Person,
     component: UserProfile,
-    layout: "/admin",
+    layout: "/user",
   },
   {
     path: "/foros-sociales",
@@ -52,23 +52,23 @@ const dashboardRoutes = [
     rtlName: "لوحة القيادة",
     icon: Dashboard,
     component: DashboardPage,
-    layout: "/admin",
+    layout: "/user",
   },
   {
-    path: "/table",
+    path: "/foros-actividades",
     name: "Foros de Actividades",
     rtlName: "قائمة الجدول",
     icon: "content_paste",
     component: TableList,
-    layout: "/admin",
+    layout: "/user",
   },
   {
-    path: "/typography",
+    path: "/chat",
     name: "Chat",
     rtlName: "طباعة",
     icon: LibraryBooks,
     component: Typography,
-    layout: "/admin",
+    layout: "/user",
   },
   /*{
     path: "/icons",

@@ -16,7 +16,7 @@ import routes from "routes.js";
 import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 
 import bgImage from "assets/img/sidebar-2.jpg";
-import logo from "assets/img/reactlogo.png";
+import logo from "assets/img/Low3.png";
 
 let ps;
 
@@ -34,7 +34,7 @@ const switchRoutes = (
       }
       return null;
     })}
-    <Redirect from="/user" to="/user/dashboard" />
+    <Redirect from="/user" to="/User/profile" />
   </Switch>
 );
 
@@ -83,7 +83,7 @@ export default function User({ ...rest }) {
     <div className={classes.wrapper}>
       <Sidebar
         routes={routes}
-        logoText={"Creative Tim"}
+        logoText={"Bienvenido"}
         logo={logo}
         image={image}
         handleDrawerToggle={handleDrawerToggle}
