@@ -67,8 +67,8 @@ export default function Login() {
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover" */}}>
-            <img src={imageSup} style={{position: 'absolute', top: "0px", left:"0px", minHeight: "1vh",maxWidth:"1871px"}}/>
-            <img src={imageInf} style={{position: 'absolute', bottom: "0px", left:"0px", minHeight: "1vh",maxWidth:"1861px"}}/>
+            <img src={imageSup} style={{position: 'absolute', top: "0px", left:"0px", minHeight: "1vh",width: '100%'}}/>
+            <img src={imageInf} style={{position: 'absolute', bottom: "0px", left:"0px", minHeight: "1vh",width: '100%'}}/>
             <GridItem>
                 <Typography variant="h5" color="success">
                     Bienvenido!
