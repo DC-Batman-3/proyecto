@@ -29,16 +29,6 @@ const useStyles = makeStyles(styles);
 
 window.userSesion = [];
 
-
-/* async function getAxios(user,password){
-    const response = await Axios.get('http://localhost:3001/auth', {params:{Usuario: user, Contraseña: password}});
-    return response.data;
-}
-
-function setUserSesion(user,password){
-    userSesion = getAxios(user,password);
-} */
-
 function funcion(){
     const [ user,setUser ] = useState("");
     const [ password,setPassword ] = useState("");
