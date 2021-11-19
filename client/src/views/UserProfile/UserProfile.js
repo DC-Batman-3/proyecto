@@ -88,7 +88,7 @@ export default function UserProfile() {
               </a>
             </CardAvatar>
             <CardBody profile>
-              <h4 className={classes.cardTitle}>{window.userSesion[0].Nombre} {window.userSesion[0].Apellidos}</h4>
+              <h4 className={classes.cardTitle}>{window.userSesion[0].NombreCompleto}</h4>
               <h6 className={classes.cardCategory}>#{window.userSesion[0].numTropa} Sección: {window.userSesion[0].seccion}</h6>
               <p className={classes.description}>
                 {about_text}

@@ -46,7 +46,6 @@ function funcion(){
                 <TextField onChange={(e)=>{setPassword(e.target.value)}} variant="standard" type ="password" label = "Contraseña" formControlProps={{fullWidth: true}} style = {{marginBottom: "2em"}}/>
                 <Button color="success" variant="contained" type="submit" value="sumbit" onClick={()=>{
                     if(window.userSesion.length > 0){
-                        alert("¡Bienvenido " + window.userSesion[0].Nombre + "!");
                         ReactDOM.render(
                             <BrowserRouter>
                                 <Switch>
@@ -72,12 +71,7 @@ export default function Login() {
     return(
         <GridContainer justify="center" alignItems="center" direction="column" style={
             {minHeight: "100vh", 
-            maxHeight: "auto", 
-            /* background: "url(" + image + ")",
-            height: "100vh",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover" */}}>
+            maxHeight: "auto",}}>
             <img src={imageSup} style={{position: 'absolute', top: "0px", left:"0px", minHeight: "1vh",width: '100%'}}/>
             <img src={imageInf} style={{position: 'absolute', bottom: "0px", left:"0px", minHeight: "1vh",width: '100%'}}/>
             <GridItem>
