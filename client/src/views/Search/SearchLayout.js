@@ -3,6 +3,7 @@ import Axios from 'axios';
 // @material-ui/core components
 import { makeStyles } from "@material-ui/styles";
 import { TextField } from "@material-ui/core";
+
 // core components
 import Radio from '@material-ui/core/Radio';
 import FormLabel from '@material-ui/core/FormLabel';
@@ -15,11 +16,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Button from '@material-ui/core/Button';
-/* import Paper from '@material-ui/core/Paper';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem'; */
 
-/* import Danger from "components/Typography/Danger.js"; */
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
@@ -100,6 +97,7 @@ export default function SearchLayout() {
   const [rBusquedaU,setRBusquedaU] = useState([]);
   
   useEffect(()=>{
+    //get filtros
     if(getDatos){
       Axios.get('http://localhost:3001/get-foro').then((response)=> {
         setForo(response);
@@ -109,7 +107,8 @@ export default function SearchLayout() {
       })
       setGetDatos(0);
     }
-    
+
+    //get resultados
     if(iniBusqueda){
       if(filterResultados==="Foros"){
         Axios.get('http://localhost:3001/get-resultados-foro', {params:{Clave: clave, Tipo: tipoForo}}).then((response)=> {
