@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Post` (
     REFERENCES `mydb`.`Foro` (`idForo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `idUsuario`
+  CONSTRAINT `idUsuarioP`
     FOREIGN KEY (`idUsuario`)
     REFERENCES `mydb`.`Usuario` (`idUsuario`)
     ON DELETE NO ACTION
