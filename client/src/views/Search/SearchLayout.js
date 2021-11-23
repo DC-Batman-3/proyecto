@@ -124,10 +124,10 @@ export default function SearchLayout() {
   return (
     <>
       <Card>
-        <CardHeader color="success">
+        <CardHeader color="success" >
           <GridContainer  justifyContent="center">
             
-            <GridItem xs={2} sm={4} md={4} >
+            <GridItem xs={12} sm={4} md={4} >
               <h4 className={classes.cardTitleWhite}>Busqueda de usuarios o foros</h4>
               <p className={classes.cardCategoryWhite}>
                 Predeterminado para buscar foros, si deseas buscar usuarios, marca la opción.
@@ -138,7 +138,7 @@ export default function SearchLayout() {
               </Button>
             </GridItem>
             
-            <GridItem xs={2} sm={4} md={4} >
+            <GridItem xs={12} sm={4} md={4} >
               <FormControl component="fieldset" className={classes.formControl} style = {{marginTop: "2 vh"}}>
                 <FormLabel className = {classes.floatingLabelFocusStyle} component="legend">Resultados</FormLabel>
                 <RadioGroup aria-label="Resultados" name="res" value={filterResultados}>
@@ -148,7 +148,7 @@ export default function SearchLayout() {
               </FormControl>
             </GridItem>
             
-            <GridItem xs={2} sm={4} md={4} >
+            <GridItem xs={12} sm={4} md={4} >
               <FormGroup>
                 
                 <FormControl variant="outlined" className={classes.formControl}>
@@ -178,37 +178,64 @@ export default function SearchLayout() {
         </CardHeader>
         
         <CardBody>
+        <GridContainer justifyContent="center">
+          
           {
             filterResultados === "Foros" ? 
               rBusquedaF.length!=0?rBusquedaF.data.map((r,i)=>{
                 return(
+                  <GridItem xs={12} sm={6} md={6} key={i}>
                   <Card key={i}>
                     <CardBody>
-                      <img src={r.img} style={{maxHeight:184, maxWidth:184}}/>
-                      <p>
-                        Usuario: {r.NombreCompleto},
-                        Tipo de foro: {r.tipoDeForo},
-                        Descripcion: {r.descripcion}
-                      </p>
+                      <GridContainer justifyContent="center">
+                        <GridItem xs={12} sm={12} md={4} >
+                          <img src={r.img} style={{maxHeight:184, maxWidth:184}}/>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={8} >
+                          <p>
+                            Usuario: {r.NombreCompleto},<br/>
+                            Tipo de foro: {r.tipoDeForo},<br/>
+                            Descripcion: {r.descripcion}
+                          </p>
+                        </GridItem>
+                        <GridItem xs={6} sm={12} md={3}>
+                          <Button type="button" color="secondary">Visitar post.</Button>
+                        </GridItem>
+                      </GridContainer>
                     </CardBody>
                   </Card>
+                  </GridItem>
                 );
               }):null
             :
-              rBusquedaU.length!=0?rBusquedaU.data.map((r,i)=>{
+              rBusquedaU.length!=0?rBusquedaU.data.filter(p=>window.userSesion[0].NombreCompleto!=p.NombreCompleto).map((r,i)=>{
                 return(
+                  <GridItem xs={12} sm={6} md={6} key={i}>
                   <Card key={i}>
                     <CardBody>
-                      <p>
-                        Nombre: {r.NombreCompleto},
-                        Fecha de nacimiento: #{r.numTropa},
-                        Seccion: {r.seccion}
-                      </p>
+                      <GridContainer justifyContent="center">
+                        <GridItem xs={12} sm={8} md={10}>
+                          <p>
+                            Nombre: {r.NombreCompleto},<br/>
+                            Numero de tropa: #{r.numTropa},<br/>
+                            Seccion: {r.seccion}
+                          </p>
+                        </GridItem>
+                        <GridItem xs={12} sm={4} md={2}>
+                          <FormControl variant="outlined" className={classes.formControl}>
+                            <Button type="button" color="secondary">Ver perfil</Button>
+                            <Button type="button" color="secondary">Chat</Button>
+                          </FormControl>
+                        </GridItem>
+                      </GridContainer>
                     </CardBody>
                   </Card>
+                  </GridItem>
+
                 );
               }):null
           }
+        </GridContainer>
         </CardBody>
 
       </Card>
