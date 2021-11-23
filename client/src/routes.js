@@ -29,6 +29,8 @@ import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import TableList from "views/TableList/TableList.js";
 import Typography from "views/Typography/Typography.js";
+import SearchLayout from "views/Search/SearchLayout.js";
+import Search from "@material-ui/icons/Search";
 //import Icons from "views/Icons/Icons.js";
 //import Maps from "views/Maps/Maps.js";
 //import NotificationsPage from "views/Notifications/Notifications.js";
@@ -68,6 +70,14 @@ const dashboardRoutes = [
     rtlName: "طباعة",
     icon: LibraryBooks,
     component: Typography,
+    layout: "/user",
+  },
+  {
+    path: "/buscar",
+    name: "Buscar",
+    rtlName: "طباعة",
+    icon: Search,
+    component: SearchLayout,
     layout: "/user",
   },
   /*{
