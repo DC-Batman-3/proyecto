@@ -18,7 +18,7 @@ CREATE SCHEMA IF NOT EXISTS `scouts` DEFAULT CHARACTER SET utf8 ;
 USE `scouts` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Usuario`
+-- Table `Usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
@@ -33,14 +33,14 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Usuario` (
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Mensajes`
+-- Table `Mensajes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Mensajes` (
   `idMensajes` INT NOT NULL AUTO_INCREMENT,
   `mensaje` VARCHAR(400) NULL,
   `idMensajeAnt` INT NULL,
   PRIMARY KEY (`idMensajes`),
-  INDEX `idMensajeAnt_idx` (`idMensajeAnt` ASC),
+  INDEX `idMensajeAnt_idx` (`idMensajeAnt` ASC) ,
   CONSTRAINT `idMensajeAnt`
     FOREIGN KEY (`idMensajeAnt`)
     REFERENCES `mydb`.`Mensajes` (`idMensajes`)
@@ -49,15 +49,15 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Mensajes` (
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Chat`
+-- Table `Chat`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Chat` (
   `usuario1` INT NOT NULL AUTO_INCREMENT,
   `ususario2` INT NOT NULL,
   `idMensaje` INT NULL,
   PRIMARY KEY (`usuario1`, `ususario2`),
-  INDEX `usuario2_idx` (`ususario2` ASC),
-  INDEX `idMensaje_idx` (`idMensaje` ASC),
+  INDEX `usuario2_idx` (`ususario2` ASC) ,
+  INDEX `idMensaje_idx` (`idMensaje` ASC) ,
   CONSTRAINT `usuario1`
     FOREIGN KEY (`usuario1`)
     REFERENCES `mydb`.`Usuario` (`idUsuario`)
@@ -76,27 +76,27 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Chat` (
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Foro`
+-- Table `Foro`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Foro` (
+CREATE TABLE IF NOT EXISTS `Foro` (
   `idForo` INT NOT NULL AUTO_INCREMENT,
   `tipoDeForo` VARCHAR(40) NULL,
   PRIMARY KEY (`idForo`));
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Comentario`
+-- Table `Comentario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Comentario` (
+CREATE TABLE IF NOT EXISTS `Comentario` (
   `idComentario` INT NOT NULL AUTO_INCREMENT,
   `idUsuario` INT NOT NULL,
   `contenido` VARCHAR(200) NOT NULL,
   `idNxtComentario` INT NULL,
   `idRespuesta` INT NULL,
   PRIMARY KEY (`idComentario`),
-  INDEX `idUsuario_idx` (`idUsuario` ASC),
-  INDEX `idNxtComentario_idx` (`idNxtComentario` ASC),
-  INDEX `idRespuesta_idx` (`idRespuesta` ASC),
+  INDEX `idUsuario_idx` (`idUsuario` ASC) ,
+  INDEX `idNxtComentario_idx` (`idNxtComentario` ASC) ,
+  INDEX `idRespuesta_idx` (`idRespuesta` ASC) ,
   CONSTRAINT `idUsuario`
     FOREIGN KEY (`idUsuario`)
     REFERENCES `mydb`.`Usuario` (`idUsuario`)
@@ -115,9 +115,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Comentario` (
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Post`
+-- Table `Post`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Post` (
+CREATE TABLE IF NOT EXISTS `Post` (
   `idPost` INT NOT NULL AUTO_INCREMENT,
   `idForo` INT NOT NULL,
   `idUsuario` INT NOT NULL,
@@ -125,9 +125,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Post` (
   `img` VARCHAR(500) NULL,
   `idComentario` INT NULL,
   PRIMARY KEY (`idPost`),
-  INDEX `idForo_idx` (`idForo` ASC),
-  INDEX `idUsuario_idx` (`idUsuario` ASC),
-  INDEX `idComentario_idx` (`idComentario` ASC),
+  INDEX `idForo_idx` (`idForo` ASC) ,
+  INDEX `idUsuario_idx` (`idUsuario` ASC) ,
+  INDEX `idComentario_idx` (`idComentario` ASC) ,
   CONSTRAINT `idForo`
     FOREIGN KEY (`idForo`)
     REFERENCES `mydb`.`Foro` (`idForo`)
