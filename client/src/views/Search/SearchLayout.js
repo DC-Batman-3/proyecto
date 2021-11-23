@@ -214,14 +214,14 @@ export default function SearchLayout() {
                   <Card key={i}>
                     <CardBody>
                       <GridContainer justifyContent="center">
-                        <GridItem xs={12} sm={8} md={10}>
+                        <GridItem xs={12} sm={8} md={9}>
                           <p>
                             Nombre: {r.NombreCompleto},<br/>
                             Numero de tropa: #{r.numTropa},<br/>
                             Seccion: {r.seccion}
                           </p>
                         </GridItem>
-                        <GridItem xs={12} sm={4} md={2}>
+                        <GridItem xs={12} sm={4} md={3}>
                           <FormControl variant="outlined" className={classes.formControl}>
                             <Button type="button" color="secondary">Ver perfil</Button>
                             <Button type="button" color="secondary">Chat</Button>
