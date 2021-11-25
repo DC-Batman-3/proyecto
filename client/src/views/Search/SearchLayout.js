@@ -16,12 +16,19 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Button from '@material-ui/core/Button';
+import Modal from '@material-ui/core/Modal';
+import Tooltip from "@material-ui/core/Tooltip";
+import Close from "@material-ui/icons/Close";
+import IconButton from "@material-ui/core/IconButton";
 
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
+import CardAvatar from "components/Card/CardAvatar.js";
+
+import avatar from "assets/img/tim_80x80.png";
 
 const styles = {
   typo: {
@@ -70,7 +77,9 @@ const styles = {
     },
     color: 'white'
   },
-  
+  tooltip: {
+    borderRadius: "18px",
+  },
 };
 
 const useStyles = makeStyles(styles);
@@ -80,22 +89,29 @@ const useStyles = makeStyles(styles);
 export default function SearchLayout() {
   const classes = useStyles();
   
-  //banderas
-  const [getDatos, setGetDatos] = useState(1);
-  const [iniBusqueda, setIniBusqueda] = useState(0);
-
   //filtros
   const [filterResultados,setFilterResultados] = useState('Foros');
   const [tipoForo, setTipoForo] = useState(0);
   const [fSeccion, setFSeccion] = useState(0);
   const [clave, setClave]=useState("");
+  const [idUsuario, setIdUsuario]=useState(0);
 
   //resultados
   const [foro,setForo] =useState([]);
   const [secciones,setSecciones] = useState([]);
   const [rBusquedaF,setRBusquedaF] = useState([]);
   const [rBusquedaU,setRBusquedaU] = useState([]);
+  const [perfilUsuario, setPerfilUsuario]=useState([]);
   
+  //banderas
+  const [getDatos, setGetDatos] = useState(1);
+  const [getUsuario, setGetUsuario] = useState(0);
+  const [iniBusqueda, setIniBusqueda] = useState(0);
+  const [abrirModal, setAbrirModal] = useState(false);
+  
+  const handleOpen = () => setAbrirModal(true);
+  const handleClose = () => setAbrirModal(false);
+
   useEffect(()=>{
     //get filtros
     if(getDatos){
@@ -119,6 +135,14 @@ export default function SearchLayout() {
           setRBusquedaU(response);
       })}
       setIniBusqueda(0);
+    }
+
+    //get-usuario
+    if(getUsuario){
+      Axios.get('http://localhost:3001/get-user-info', {params:{ID: idUsuario}}).then((response)=> {
+          setPerfilUsuario(response);
+      })
+      setGetUsuario(0);
     }
   })
   return (
@@ -223,7 +247,7 @@ export default function SearchLayout() {
                         </GridItem>
                         <GridItem xs={12} sm={4} md={3}>
                           <FormControl variant="outlined" className={classes.formControl}>
-                            <Button type="button" color="secondary">Ver perfil</Button>
+                            <Button type="button" color="secondary" onClick={()=>{handleOpen();setIdUsuario(r.idUsuario);setGetUsuario(1);}}>Ver perfil</Button>
                             <Button type="button" color="secondary">Chat</Button>
                           </FormControl>
                         </GridItem>
@@ -231,14 +255,48 @@ export default function SearchLayout() {
                     </CardBody>
                   </Card>
                   </GridItem>
-
                 );
               }):null
           }
         </GridContainer>
         </CardBody>
-
       </Card>
+      <Modal
+        open={abrirModal}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        keepMounted
+      >
+        <GridContainer justify="center" alignItems="center" direction="column" style={
+          {minHeight: "100vh", 
+          maxHeight: "auto",}}>
+          <GridItem>
+            <Card style={{maxWidth:300}} profile>
+              <Tooltip
+                id="tooltip-top-start"
+                title="Cerrar"
+                placement="top-end"
+                classes={{tooltip:classes.tooltip}}>
+                  <IconButton style={{width: 50, top: "0px", left:"0px"}} aria-label="Close" className={classes.tableActionButton} onClick={handleClose}>
+                    <Close className={classes.tableActionButtonIcon + " " + classes.close}/>
+                  </IconButton>
+              </Tooltip>
+              <CardAvatar profile>
+                <img src={perfilUsuario.length!=0?perfilUsuario.data[0].img:null} alt={avatar} />
+              </CardAvatar>
+              <CardBody profile>
+                <h4 className={classes.cardTitle}>{perfilUsuario.length!=0?perfilUsuario.data[0].NombreCompleto:null}</h4>
+                <h6 className={classes.cardCategory}>#{perfilUsuario.length!=0?perfilUsuario.data[0].numTropa:null} Sección: {perfilUsuario.length!=0?perfilUsuario.data[0].seccion:null}</h6>
+                <p style={{with:30}}className={classes.description}>
+                  {perfilUsuario.length!=0?perfilUsuario.data[0].descripcion:null}
+                </p>
+                <Button type="button" color="secondary" /* onClick={} */>Chat</Button>
+              </CardBody>
+            </Card>
+          </GridItem>
+        </GridContainer>         
+      </Modal>
     </>
   );
 }

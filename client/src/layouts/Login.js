@@ -51,7 +51,7 @@ function funcion(){
                                 <Switch>
                                   <Route path="/user" component={User} />
                                   <Route path="/rtl" component={RTL} />
-                                  <Redirect from="/Login" to="/user/foros-sociales"/>
+                                  <Redirect from="/Login" to="/user/perfil"/>
                                 </Switch>
                             </BrowserRouter>,
                         document.getElementById("root"));

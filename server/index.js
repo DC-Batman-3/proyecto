@@ -33,11 +33,20 @@ app.get('/auth', function(req, res) {
 	}
 });
 
-app.post('/update-user-descripcion',function(req, res) {
+app.post('/update-user',function(req, res) {
 	const about= req.body.params.about;
 	const id = req.body.params.id;
-	const sqlUpdate= "SELECT * FROM usuario WHERE Usuario = ? AND Contraseña = ?";
-	connection.query(sqlUpdate, [about, id]);
+	const img = req.body.params.imagen;
+	var sqlUpdate= "";
+	if(about != null){
+		sqlUpdate = "UPDATE usuario SET descripcion = ? WHERE idUsuario = ?"
+		connection.query(sqlUpdate, [about, id]);
+	}
+	if(img != null){
+		sqlUpdate = "UPDATE usuario SET img = ? WHERE idUsuario = ?"
+		connection.query(sqlUpdate, [img, id]);
+	}
+	
 })
 
 app.get('/get-foro',function(req, res) {
@@ -85,10 +94,10 @@ app.get('/get-resultados-personas',function(req, res) {
 	const clave= req.query.Clave.toLowerCase();
 	const seccion = req.query.Seccion;
 	var resultados = [];
-	var sqlSelect= "SELECT NombreCompleto, numTropa, seccion FROM usuario";
+	var sqlSelect= "SELECT idUsuario, NombreCompleto, numTropa, seccion FROM usuario";
 	if (clave) {
 		if(seccion!=0){
-			sqlSelect= "SELECT NombreCompleto, numTropa, seccion FROM usuario WHERE seccion = ?";
+			sqlSelect= "SELECT idUsuario, NombreCompleto, numTropa, seccion FROM usuario WHERE seccion = ?";
 			connection.query(sqlSelect, [seccion], function(error, results, fields) {
 				if(results.length>0){
 					results.forEach(function(item){
@@ -110,6 +119,16 @@ app.get('/get-resultados-personas',function(req, res) {
 	}
 })
 
+app.get('/get-user-info', function(req, res) {
+	const idUser= req.query.ID;
+	const sqlSelect= "SELECT NombreCompleto, numTropa, seccion, descripcion, img FROM usuario WHERE idUsuario = ?";
+	connection.query(sqlSelect, [idUser], function(error, results, fields) {
+		console.log(results)
+		if(results.length>0){
+			res.send(results);
+		}
+	});
+});
 
 app.listen(PORT, () => {
 	console.log(`Server listening on ${PORT}`);
