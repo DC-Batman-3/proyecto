@@ -28,7 +28,7 @@ import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import TableList from "views/TableList/TableList.js";
-import Typography from "views/Typography/Typography.js";
+import ChatLayout from "views/Chat/ChatLayout.js";
 import SearchLayout from "views/Search/SearchLayout.js";
 import Search from "@material-ui/icons/Search";
 //import Icons from "views/Icons/Icons.js";
@@ -69,7 +69,7 @@ const dashboardRoutes = [
     name: "Chat",
     rtlName: "طباعة",
     icon: LibraryBooks,
-    component: Typography,
+    component: ChatLayout,
     layout: "/user",
   },
   {
