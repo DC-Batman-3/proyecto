@@ -19,19 +19,20 @@
 import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
-//import BubbleChart from "@material-ui/icons/BubbleChart";
+import BubbleChart from "@material-ui/icons/BubbleChart";
 //import LocationOn from "@material-ui/icons/LocationOn";
 //import Notifications from "@material-ui/icons/Notifications";
 //import Unarchive from "@material-ui/icons/Unarchive";
 //import Language from "@material-ui/icons/Language";
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.js";
+import Formulario from "views/Formulario/Formulario.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import TableList from "views/TableList/TableList.js";
 import ChatLayout from "views/Chat/ChatLayout.js";
 import SearchLayout from "views/Search/SearchLayout.js";
 import Search from "@material-ui/icons/Search";
-//import Icons from "views/Icons/Icons.js";
+
 //import Maps from "views/Maps/Maps.js";
 //import NotificationsPage from "views/Notifications/Notifications.js";
 //import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
@@ -80,15 +81,15 @@ const dashboardRoutes = [
     component: SearchLayout,
     layout: "/user",
   },
-  /*{
-    path: "/icons",
-    name: "Icons",
+  {
+    path: "/Formulario",
+    name: "Formulario",
     rtlName: "الرموز",
     icon: BubbleChart,
-    component: Icons,
-    layout: "/admin",
+    component: Formulario,
+    layout: "/user",
   },
-  {
+  /*{
     path: "/maps",
     name: "Maps",
     rtlName: "خرائط",
@@ -120,7 +121,7 @@ const dashboardRoutes = [
     component: UpgradeToPro,
     layout: "/admin",
   },*/
-  
+
 
 
 ];

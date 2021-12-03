@@ -123,6 +123,8 @@ CREATE TABLE IF NOT EXISTS `Post` (
   `idForo` INT NOT NULL,
   `idUsuario` INT NOT NULL,
   `descripcion` VARCHAR(400) NOT NULL,
+  `titulo` VARCHAR(100) NOT NULL,
+  `contenido` VARCHAR(400) NOT NULL,
   `img` VARCHAR(500) NULL,
   `idComentario` INT NULL,
   PRIMARY KEY (`idPost`),
@@ -158,4 +160,3 @@ USE `scouts`;
 INSERT INTO `Usuario` (`idUsuario`, `Usuario`, `Contraseña`, `NombreCompleto`, `Nacimiento`, `numTropa`, `seccion`, `descripcion`, `img`) VALUES (1, 'usuario', '1234', 'primero', '01/01/1990', 3, 'Tijuana', NULL, NULL);
 
 COMMIT;
-
