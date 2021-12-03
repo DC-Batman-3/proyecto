@@ -41,8 +41,8 @@ function funcion(){
     return(
         <form>
             <GridContainer direction="column" alignmentx="center" justify="center">
-                <TextField onBlur={event => { setUser(event.target.value)}} variant="standard" label = "Usuario" formControlProps={{fullWidth: true}} style = {{marginBottom: "2em"}}/>
-                <TextField onBlur={event => { setPassword(event.target.value)}} variant="standard" type ="password" label = "Contraseña" formControlProps={{fullWidth: true}} style = {{marginBottom: "2em"}}/>
+                <TextField onChange={event => { setUser(event.target.value)}} onBlur={event => { setUser(event.target.value)}} variant="standard" label = "Usuario" formControlProps={{fullWidth: true}} style = {{marginBottom: "2em"}}/>
+                <TextField onChange={event => { setPassword(event.target.value)}} onBlur={event => { setPassword(event.target.value)}} variant="standard" type ="password" label = "Contraseña" formControlProps={{fullWidth: true}} style = {{marginBottom: "2em"}}/>
                 <Button color="success" variant="contained" type="submit" value="sumbit" onClick={()=>{
                     if(window.userSesion.length > 0){
                         ReactDOM.render(
