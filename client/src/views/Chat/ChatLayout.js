@@ -12,8 +12,8 @@ export default function ChatLayout(){
         <ChatEngine
             height="100vh"
             projectID="63df2c81-0a47-4f4c-a0cc-44e077d2a40f"
-            userName={localStorage.getItem('username')}
-            userSecret={localStorage.getItem('password')}
+            userName = {window.userSesion[0].Usuario}
+            userSecret = {window.userSesion[0].Contraseña}
             renderChatFeed={(chatAppProps) => <ChatFeed {... chatAppProps} /> }
         />
     )
