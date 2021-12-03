@@ -1,4 +1,3 @@
-
 import React from "react";
 // react plugin for creating charts
 
@@ -70,7 +69,15 @@ export default function Formulario() {
          multiline
          rows="4"
          margin="normal"
-       />
+         />
+         <TextField
+          id="standard-uncontrolled"
+           label="Link de la imagen a mostrar"
+            fullWidth
+           className={classes.textField}
+           margin=""
+                 />
+
             <TextField
          id="Campo Contenido"
           helperText="Escribe aqui el contenido"
