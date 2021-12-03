@@ -41,7 +41,7 @@ import Search from "@material-ui/icons/Search";
 
 const dashboardRoutes = [
   {
-    path: "/profile",
+    path: "/perfil",
     name: "Mi Perfil",
     rtlName: "ملف تعريفي للمستخدم",
     icon: Person,
@@ -73,7 +73,7 @@ const dashboardRoutes = [
     layout: "/user",
   },
   {
-    path: "/buscar",
+    path: "/busqueda",
     name: "Buscar",
     rtlName: "طباعة",
     icon: Search,

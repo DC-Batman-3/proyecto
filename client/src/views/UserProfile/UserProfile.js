@@ -14,7 +14,7 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 import { useForm } from "react-hook-form";
 
-import avatar from "assets/img/tim_80x80.png";
+
 
 const styles = {
   cardCategoryWhite: {
@@ -41,9 +41,10 @@ export default function UserProfile() {
   const classes = useStyles();
   const {register, getValues} = useForm();
   const [about_text, setAboutText] = useState(window.userSesion[0].descripcion);
+  const [profilePic, setProfilePic] = useState(window.userSesion[0].img);
   
   useEffect(()=>{
-    Axios.post('http://localhost:3001/update-user-descripcion', {params:{about: about_text, id: window.userSesion[0].idUsuario}})
+    Axios.post('http://localhost:3001/update-user', {params:{about: about_text, id: window.userSesion[0].idUsuario, imagen: profilePic}})
   })
 
   return (
@@ -54,6 +55,9 @@ export default function UserProfile() {
             <form>
               <CardHeader color="success">
                 <h4 className={classes.cardTitleWhite}>Termina tu perfil.</h4>
+                <p className={classes.cardCategoryWhite}>
+                  Termina o actualiza tu perfil en cualquier momento. No olvides darle acualizar cuando llenes alguno de los campos.
+                </p>
               </CardHeader>
               <CardBody>
                 <GridContainer>
@@ -66,6 +70,18 @@ export default function UserProfile() {
                       rows={4}
                       defaultValue=""
                       fullWidth
+                      style = {{marginBottom: "3em"}}
+                    />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <TextField
+                      onChange={(e)=>setProfilePic(e.target.value)}
+                      id="outlined-multiline-static"
+                      label="Pon aqui el link a una imagen que quisieras utilizar de perfil"
+                      multiline
+                      rows={2}
+                      defaultValue=""
+                      fullWidth
                     />
                   </GridItem>
                 </GridContainer>
@@ -73,8 +89,12 @@ export default function UserProfile() {
               <CardFooter>
                 <Button color="warning" onClick={()=>{
                   var c = getValues('tAbout');
-                  setAboutText(c);
-                  window.userSesion[0].descripcion = c;
+                  if (c!=""){
+                    setAboutText(c);
+                    window.userSesion[0].descripcion = c;
+                  }else if(profilePic!=""){
+                    window.userSesion[0].img = profilePic;
+                  }
                 }}>Actualizar</Button>
               </CardFooter>  
             </form>
@@ -84,18 +104,15 @@ export default function UserProfile() {
           <Card profile>
             <CardAvatar profile>
               <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                <img src={avatar} alt="..." />
+                <img src={profilePic} alt="aqui va tu foto de perfil"/* {avatar} */ />
               </a>
             </CardAvatar>
             <CardBody profile>
               <h4 className={classes.cardTitle}>{window.userSesion[0].NombreCompleto}</h4>
-              <h6 className={classes.cardCategory}>#{window.userSesion[0].numTropa} Sección: {window.userSesion[0].seccion}</h6>
+              <h6 className={classes.cardCategory}>Numero de tropa: #{window.userSesion[0].numTropa} <br/>Sección: {window.userSesion[0].seccion}</h6>
               <p className={classes.description}>
-                {about_text}
+                {window.userSesion[0].descripcion}
               </p>
-              <Button color="warning" round>
-                Chat
-              </Button>
             </CardBody>
           </Card>
         </GridItem>

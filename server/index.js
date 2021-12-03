@@ -13,17 +13,64 @@ var connection = mysql.createPool({
 	database : 'scouts'
 });
 
+
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+/* app.get('/get-Users', function(req, res) {
+	const sqlSelect= "SELECT idUsuario, Usuario, Contraseña, NombreCompleto, numTropa FROM usuario";
+	connection.query(sqlSelect, function(error, results, fields) {
+		console.log(results);
+		res.send(results);
+	});
+});
+
+app.post('/insert-Users', function(req, res) {
+	const us = req.body.Usuario;
+	const co = req.body.Contraseña;
+	const nc = req.body.NombreCompleto;
+	const nt = req.body.numTropa;
+	const sqlInsert= "INSERT INTO `usuario`(`Usuario`, `Contraseña`, `NombreCompleto`, `numTropa`) VALUES (?, ?, ?, ?)";
+	console.log(req.body.params)
+	connection.query(sqlInsert, [us, co, nc, nt], function(error, results, fields) {
+		console.log(fields);
+		console.log(error);
+		res.send(results);
+	});
+});
+
+app.put('/update-Users', function(req, res) {
+	const id = req.body.idUsuario;
+	const us = req.body.Usuario;
+	const co = req.body.Contraseña;
+	const nc = req.body.NombreCompleto;
+	const nt = req.body.numTropa;
+	const sqlUpdate= "UPDATE `usuario` SET Usuario=?,`Contraseña`=?,`NombreCompleto`=?,`numTropa`=? WHERE idUsuario = ?";
+	connection.query(sqlUpdate,[ us, co, nc, nt, id], function(error, results, fields) {
+		console.log(error);
+		res.send(results);
+	});
+});
+
+app.post('/delete-Users', function(req, res) {
+	const id = req.body.idUsuario;
+	console.log(id);
+	const sqlDelete= "DELETE FROM usuario WHERE idUsuario = ?";
+	connection.query(sqlDelete, [id], function(error, results, fields) {
+		console.log(error);
+	});
+}); */
+
 
 app.get('/auth', function(req, res) {
 	const user= req.query.Usuario;
 	const password = req.query.Contraseña;
 	const sqlSelect= "SELECT * FROM usuario WHERE Usuario = ? AND Contraseña = ?";
+	console.log("User: " + user);
+	console.log("Password: " + password);
 	if (user && password) {
 		connection.query(sqlSelect, [user, password], function(error, results, fields) {
 			if(results.length>0){
@@ -33,11 +80,20 @@ app.get('/auth', function(req, res) {
 	}
 });
 
-app.post('/update-user-descripcion',function(req, res) {
+app.post('/update-user',function(req, res) {
 	const about= req.body.params.about;
 	const id = req.body.params.id;
-	const sqlUpdate= "SELECT * FROM usuario WHERE Usuario = ? AND Contraseña = ?";
-	connection.query(sqlUpdate, [about, id]);
+	const img = req.body.params.imagen;
+	var sqlUpdate= "";
+	if(about != null){
+		sqlUpdate = "UPDATE usuario SET descripcion = ? WHERE idUsuario = ?"
+		connection.query(sqlUpdate, [about, id]);
+	}
+	if(img != null){
+		sqlUpdate = "UPDATE usuario SET img = ? WHERE idUsuario = ?"
+		connection.query(sqlUpdate, [img, id]);
+	}
+	
 })
 
 app.get('/get-foro',function(req, res) {
@@ -85,10 +141,10 @@ app.get('/get-resultados-personas',function(req, res) {
 	const clave= req.query.Clave.toLowerCase();
 	const seccion = req.query.Seccion;
 	var resultados = [];
-	var sqlSelect= "SELECT NombreCompleto, numTropa, seccion FROM usuario";
+	var sqlSelect= "SELECT idUsuario, NombreCompleto, numTropa, seccion FROM usuario";
 	if (clave) {
 		if(seccion!=0){
-			sqlSelect= "SELECT NombreCompleto, numTropa, seccion FROM usuario WHERE seccion = ?";
+			sqlSelect= "SELECT idUsuario, NombreCompleto, numTropa, seccion FROM usuario WHERE seccion = ?";
 			connection.query(sqlSelect, [seccion], function(error, results, fields) {
 				if(results.length>0){
 					results.forEach(function(item){
@@ -110,6 +166,16 @@ app.get('/get-resultados-personas',function(req, res) {
 	}
 })
 
+app.get('/get-user-info', function(req, res) {
+	const idUser= req.query.ID;
+	const sqlSelect= "SELECT NombreCompleto, numTropa, seccion, descripcion, img FROM usuario WHERE idUsuario = ?";
+	connection.query(sqlSelect, [idUser], function(error, results, fields) {
+		console.log(results)
+		if(results.length>0){
+			res.send(results);
+		}
+	});
+});
 
 app.listen(PORT, () => {
 	console.log(`Server listening on ${PORT}`);
