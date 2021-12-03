@@ -69,8 +69,6 @@ app.get('/auth', function(req, res) {
 	const user= req.query.Usuario;
 	const password = req.query.Contraseña;
 	const sqlSelect= "SELECT * FROM usuario WHERE Usuario = ? AND Contraseña = ?";
-	console.log("User: " + user);
-	console.log("Password: " + password);
 	if (user && password) {
 		connection.query(sqlSelect, [user, password], function(error, results, fields) {
 			if(results.length>0){

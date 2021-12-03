@@ -206,7 +206,7 @@ export default function SearchLayout() {
           
           {
             filterResultados === "Foros" ? 
-              rBusquedaF.length!=0?rBusquedaF.data.map((r,i)=>{
+              rBusquedaF.length!=0?rBusquedaF.data.reverse().map((r,i)=>{
                 return(
                   <GridItem xs={12} sm={6} md={6} key={i}>
                   <Card key={i}>
