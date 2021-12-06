@@ -4,7 +4,7 @@ import Axios from 'axios';
 // @material-ui/core
 // @material-ui/icons
 
-import Button from "components/CustomButtons/Button.js";
+//import Button from "components/CustomButtons/Button.js";
 import { NavLink } from 'react-router-dom';
 // core components
 import GridItem from "components/Grid/GridItem.js";
@@ -64,7 +64,7 @@ const [forosPost,GetForosPost]=useState([]);
              </p>
            </GridItem>
            <GridItem xs={6} sm={12} md={3}>
-             <Button type="button" color="secondary">Visitar post.</Button>
+               <NavLink to="/user/Vista-Foro">ver</NavLink>
            </GridItem>
          </GridContainer>
        </CardBody>
@@ -98,7 +98,7 @@ const [forosPost,GetForosPost]=useState([]);
              </p>
            </GridItem>
            <GridItem xs={6} sm={12} md={3}>
-             <Button type="button" color="secondary">Visitar post.</Button>
+              <NavLink to="/user/Vista-Foro">ver</NavLink>
            </GridItem>
          </GridContainer>
        </CardBody>
@@ -132,7 +132,7 @@ const [forosPost,GetForosPost]=useState([]);
              </p>
            </GridItem>
            <GridItem xs={6} sm={12} md={3}>
-             <Button type="button" color="secondary">Visitar post.</Button>
+          <NavLink to="/user/Vista-Foro">ver</NavLink>
            </GridItem>
          </GridContainer>
        </CardBody>

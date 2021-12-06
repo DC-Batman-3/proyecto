@@ -26,9 +26,6 @@ const [forosPost,GetForosPost]=useState([]);
             GetForosPost(response);
           })
         })
-
-
-
   return (
     <div>
 

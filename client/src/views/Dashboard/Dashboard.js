@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 import Axios from 'axios';
 // @material-ui/core
 // @material-ui/icons
-import Button from "components/CustomButtons/Button.js";
+//import Button from "components/CustomButtons/Button.js";
 import { NavLink } from 'react-router-dom';
 // core components
 import GridItem from "components/Grid/GridItem.js";
@@ -17,15 +17,13 @@ import Cloud from "@material-ui/icons/Cloud";
 import Tabs from "components/CustomTabs/CustomTabs.js";
 import { DiscussionEmbed } from 'disqus-react';
 
-import ReactDOM from "react-dom";
+//import ReactDOM from "react-dom";
 
-window.post=5;
+window.post=0;
 export default function Dashboard() {
 const [forosPost,GetForosPost]=useState([]);
-const rootElement = document.getElementById("root");
-ReactDOM.render(
-  rootElement
-);
+////const rootElement = document.getElementById("root");
+//
 
   useEffect(()=>{
       Axios.get('http://localhost:3001/get-Posts', {params:{clave : 1 }}).then((response)=> {
@@ -37,6 +35,8 @@ ReactDOM.render(
     <div>
 
         <NavLink to="/user/Formulario">Crear un Nuevo Foro</NavLink>
+
+
 
   <h4> Todos los Foros </h4>
       <Tabs
@@ -50,6 +50,7 @@ ReactDOM.render(
 
   forosPost.length!=0?forosPost.data.map((r,i)=>{
    return(
+      window.post=r.idPost,
      <GridItem xs={12} sm={6} md={6} key={i}>
      <Card key={i}>
        <CardBody>
@@ -61,11 +62,14 @@ ReactDOM.render(
              <p>
              {r.titulo}<br/>
              Tipo de foro: {r.tema}<br/>
+
+             id post{r.idPost}
              Descripcion: {r.descripcion}
              </p>
            </GridItem>
            <GridItem xs={6} sm={12} md={3}>
-             <Button type="button" color="secondary">Visitar post.</Button>
+
+            <NavLink to="/user/Vista-Foro">ver</NavLink>
            </GridItem>
          </GridContainer>
        </CardBody>
@@ -99,7 +103,7 @@ ReactDOM.render(
              </p>
            </GridItem>
            <GridItem xs={6} sm={12} md={3}>
-             <Button type="button" color="secondary">Visitar post.</Button>
+               <NavLink to="/user/Vista-Foro">ver</NavLink>
            </GridItem>
          </GridContainer>
        </CardBody>
@@ -133,7 +137,7 @@ ReactDOM.render(
              </p>
            </GridItem>
            <GridItem xs={6} sm={12} md={3}>
-             <Button type="button" color="secondary">Visitar post.</Button>
+              <NavLink to="/user/Vista-Foro">ver</NavLink>
            </GridItem>
          </GridContainer>
        </CardBody>
