@@ -57,11 +57,7 @@ export default function Formulario() {
                    </TextField>
                  <Button type="button" color="success">Crear Foro</Button>
            </GridItem>
-
-
            </Grid>
-
-
           <TextField
          id="Campo descricion"
         helperText="Escribe aqui una descripcion"
@@ -77,7 +73,6 @@ export default function Formulario() {
            className={classes.textField}
            margin=""
                  />
-
             <TextField
          id="Campo Contenido"
           helperText="Escribe aqui el contenido"
@@ -87,8 +82,6 @@ export default function Formulario() {
          rows="37"
          margin="normal"
        />
-
-
         <DiscussionEmbed
             shortname='scoutsad'
             config={

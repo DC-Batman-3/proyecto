@@ -91,7 +91,7 @@ app.post('/update-user',function(req, res) {
 		sqlUpdate = "UPDATE usuario SET img = ? WHERE idUsuario = ?"
 		connection.query(sqlUpdate, [img, id]);
 	}
-	
+
 })
 
 app.get('/get-foro',function(req, res) {
@@ -163,6 +163,15 @@ app.get('/get-resultados-personas',function(req, res) {
 		});
 	}
 })
+
+app.get('/get-Posts', function(req, res) {
+	const datos=req.body.params.clave;
+	const sqlSelect= "SELECT * FROM post WHERE idForo=?";
+	connection.query(sqlSelect, [datos] , function(error, results, fields) {
+		console.log(results);
+		res.send(results);
+	});
+});
 
 app.get('/get-user-info', function(req, res) {
 	const idUser= req.query.ID;

@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 // react plugin for creating charts
-
+import Axios from 'axios';
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -11,7 +11,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "components/CustomButtons/Button.js";
 
 import AccessTime from "@material-ui/icons/AccessTime";
-
+import { NavLink } from 'react-router-dom';
 
 // core components
 import GridItem from "components/Grid/GridItem.js";
@@ -42,6 +42,16 @@ const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
   const classes = useStyles();
+
+const [forosPost,GetForosPost]=useState([]);
+
+
+  useEffect(()=>{
+      Axios.get('http://localhost:3001/get-Posts', {params:{clave : 1}}).then((response)=> {
+          GetForosPost(response);
+        })
+      })
+
   return (
     <div>
 
@@ -105,6 +115,9 @@ export default function Dashboard() {
             </CardFooter>
           </Card>
         </GridItem>
+        <GridItem xs={12} sm={12} md={4}>
+        <NavLink to="/user/Formulario">Crear un Nuevo Foro</NavLink>
+        </GridItem>
       </GridContainer>
   <h4> Todos los Foros </h4>
       <Tabs
@@ -115,64 +128,46 @@ export default function Dashboard() {
               tabName: "Mas Visto",
               tabIcon: BugReport,
               tabContent: (
-                <Card chart>
-                  <CardHeader color="warning">
+  forosPost.data.map((r,i)=>{
+   return(
+     <GridItem xs={12} sm={6} md={6} key={i}>
+     <Card key={i}>
+       <CardBody>
+         <GridContainer justifyContent="center">
+           <GridItem xs={12} sm={12} md={4} >
+             <img src={r.img} style={{maxHeight:184, maxWidth:184}}/>
+           </GridItem>
+           <GridItem xs={12} sm={12} md={8} >
+             <p>
+               Usuario: {r.titulo},<br/>
+               Tipo de foro: {r.idForo},<br/>
+               Descripcion: {r.descripcion}
+             </p>
+           </GridItem>
+           <GridItem xs={6} sm={12} md={3}>
+             <Button type="button" color="secondary">Visitar post.</Button>
+           </GridItem>
+         </GridContainer>
+       </CardBody>
+     </Card>
+     </GridItem>
+   );}))
 
-                  </CardHeader>
-                  <CardBody>
-                    <h4 className={classes.cardTitle}>Foro 152</h4>
-                    <p className={classes.cardCategory}>Texto de relleno</p>
-                  </CardBody>
-                  <CardFooter chart>
-                  <Button type="button" color="info">Ver</Button>
-                    <div className={classes.stats}>
-                      <AccessTime />  sent 2 days ago
-                    </div>
-                  </CardFooter>
-                </Card>
-              )
+
             },
             {
               tabName: "Mas nuevo",
               tabIcon: Code,
               tabContent: (
-                <Card chart>
-                  <CardHeader color="success">
-
-                  </CardHeader>
-                  <CardBody>
-                    <h4 className={classes.cardTitle}>Foro 163</h4>
-                    <p className={classes.cardCategory}>Texto de relleno</p>
-                  </CardBody>
-                  <CardFooter chart>
-                  <Button type="button" color="info">Ver</Button>
-                    <div className={classes.stats}>
-                      <AccessTime />  sent 2 days ago
-                    </div>
-                  </CardFooter>
-                </Card>
+  <h4> Todos los Foros </h4>
               )
             },
             {
               tabName: "Mis foros",
               tabIcon: Cloud,
               tabContent: (
-                <Card chart>
-                  <CardHeader color="danger">
 
-                  </CardHeader>
-                  <CardBody>
-                    <h4 className={classes.cardTitle}>Foro 4</h4>
-                    <p className={classes.cardCategory}>Texto de relleno</p>
-                  </CardBody>
-                  <CardFooter chart>
-                  <Button type="button" color="info">Ver</Button>
-                    <div className={classes.stats}>
-                      <AccessTime />  sent 2 days ago
-                    </div>
-                  </CardFooter>
-                </Card>
-
+  <h4> Todos los Foros </h4>
               )
             }
           ]}
@@ -185,7 +180,7 @@ export default function Dashboard() {
                     url: 'http://localhost:3000/user/foros-sociales',
                     identifier: 'foros Sosciales ID',
                     title: 'Foros Sociales Titulo',
-                    language: 'es_MX' 
+                    language: 'es_MX'
                 }
             }
         />

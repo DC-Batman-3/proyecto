@@ -126,6 +126,8 @@ CREATE TABLE IF NOT EXISTS `Post` (
   `titulo` VARCHAR(100) NOT NULL,
   `contenido` VARCHAR(400) NOT NULL,
   `img` VARCHAR(500) NULL,
+  `vista` INT NOT NULL,
+  `seccion` int NOT NULL,
   `idComentario` INT NULL,
   PRIMARY KEY (`idPost`),
   INDEX `idForo_idx` (`idForo` ASC),
