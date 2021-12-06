@@ -40,7 +40,7 @@ const [forosPost,GetForosPost]=useState([]);
          <GridItem>
           <Typography variant="h2" gutterBottom>
       {r.titulo}
-      </Typography>
+              </Typography>
            <img src={r.img} style={{maxHeight:800, maxWidth:800}}/>
          </GridItem>
          <GridItem  >
@@ -54,6 +54,17 @@ const [forosPost,GetForosPost]=useState([]);
        </GridContainer>
      </CardBody>
    </Card>
+   <DiscussionEmbed
+       shortname='scoutsad'
+       config={
+           {
+               url: 'http://localhost:3000/user'+window.Post,
+               identifier: window.Post,
+               title: window.Post,
+               language: 'es_MX'
+           }
+       }
+   />
    </GridItem>
   ); //return map
   }//llave del mapeo
@@ -62,17 +73,7 @@ const [forosPost,GetForosPost]=useState([]);
 
 
 
-        <DiscussionEmbed
-            shortname='scoutsad'
-            config={
-                {
-                    url: 'http://localhost:3000/user',
-                    identifier: 'foros So',
-                    title: 'Foros Sociales Titulo',
-                    language: 'es_MX'
-                }
-            }
-        />
+
 
     </div>
   );

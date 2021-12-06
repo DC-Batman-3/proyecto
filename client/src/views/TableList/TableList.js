@@ -64,7 +64,7 @@ const [forosPost,GetForosPost]=useState([]);
              </p>
            </GridItem>
            <GridItem xs={6} sm={12} md={3}>
-               <NavLink to="/user/Vista-Foro">ver</NavLink>
+               <NavLink to="/user/Vista-Foro" onClick={()=>{window.post=r.idPost}}>ver</NavLink>
            </GridItem>
          </GridContainer>
        </CardBody>
@@ -98,7 +98,7 @@ const [forosPost,GetForosPost]=useState([]);
              </p>
            </GridItem>
            <GridItem xs={6} sm={12} md={3}>
-              <NavLink to="/user/Vista-Foro">ver</NavLink>
+              <NavLink to="/user/Vista-Foro" onClick={()=>{window.post=r.idPost}}>ver</NavLink>
            </GridItem>
          </GridContainer>
        </CardBody>
@@ -132,7 +132,7 @@ const [forosPost,GetForosPost]=useState([]);
              </p>
            </GridItem>
            <GridItem xs={6} sm={12} md={3}>
-          <NavLink to="/user/Vista-Foro">ver</NavLink>
+          <NavLink to="/user/Vista-Foro" onClick={()=>{window.post=r.idPost}}>ver</NavLink>
            </GridItem>
          </GridContainer>
        </CardBody>

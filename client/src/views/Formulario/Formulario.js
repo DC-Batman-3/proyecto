@@ -5,7 +5,7 @@ import React, {useState, useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Axios from 'axios';
 import { Redirect } from "react-router-dom";
-import { DiscussionEmbed } from 'disqus-react';
+//import { DiscussionEmbed } from 'disqus-react';
 import Button from "components/CustomButtons/Button.js";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import { TextField } from "@material-ui/core";
@@ -102,6 +102,7 @@ if (Crear){
 
                    </TextField>
                  <Button onClick={()=>{setCrear(1)}}  type="button" color="success">Crear Foro</Button>
+
            </GridItem>
            </Grid>
           <TextField
@@ -137,17 +138,7 @@ if (Crear){
 
 
 
-        <DiscussionEmbed
-            shortname='scoutsad'
-            config={
-                {
-                    url: 'http://localhost:3000/user/foros-sociales',
-                    identifier: 'foros Sosciales ID',
-                    title: 'Foros Sociales Titulo',
-                    language: 'es_MX'
-                }
-            }
-        />
+
 
     </div>
   );
