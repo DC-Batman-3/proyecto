@@ -173,6 +173,15 @@ app.get('/get-Posts', function(req, res) {
 	});
 });
 
+app.get('/get-Posts-unico', function(req, res) {
+	const datos=req.query.clave;
+	const sqlSelect= "SELECT * FROM post WHERE IdPost=?";
+	connection.query(sqlSelect, [datos] , function(error, results, fields) {
+		console.log(results);
+		res.send(results);
+	});
+});
+
 app.get('/get-user-info', function(req, res) {
 	const idUser= req.query.ID;
 	const sqlSelect= "SELECT NombreCompleto, numTropa, seccion, descripcion, img FROM usuario WHERE idUsuario = ?";

@@ -2,31 +2,16 @@ import React, {useState, useEffect} from "react";
 // react plugin for creating charts
 import Axios from 'axios';
 // @material-ui/core
-
-
 // @material-ui/icons
 
-
-
 import Button from "components/CustomButtons/Button.js";
-
-
 import { NavLink } from 'react-router-dom';
-
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-
-
-
 import Card from "components/Card/Card.js";
 
-
 import CardBody from "components/Card/CardBody.js";
-
-
-
-
 
 import BugReport from "@material-ui/icons/BugReport";
 import Code from "@material-ui/icons/Code";
@@ -35,15 +20,7 @@ import Cloud from "@material-ui/icons/Cloud";
 import Tabs from "components/CustomTabs/CustomTabs.js";
 
 import { DiscussionEmbed } from 'disqus-react';
-
-
-
-
-
-
 export default function TableList() {
-
-
 
 const [forosPost,GetForosPost]=useState([]);
 
@@ -82,7 +59,7 @@ const [forosPost,GetForosPost]=useState([]);
            <GridItem xs={12} sm={12} md={8} >
              <p>
              {r.titulo}<br/>
-             Tipo de foro: {r.idForo}<br/>
+             Tipo de foro: {r.tema}<br/>
              Descripcion: {r.descripcion}
              </p>
            </GridItem>
@@ -116,7 +93,7 @@ const [forosPost,GetForosPost]=useState([]);
                <GridItem xs={12} sm={12} md={8} >
                  <p>
                  {r.titulo},<br/>
-             Tipo de foro: {r.idForo},<br/>
+             Tipo de foro: {r.tema},<br/>
              Descripcion: {r.descripcion}
              </p>
            </GridItem>
@@ -150,7 +127,7 @@ const [forosPost,GetForosPost]=useState([]);
            <GridItem xs={12} sm={12} md={8} >
              <p>
              {r.titulo},<br/>
-             Tipo de foro: {r.idForo},<br/>
+             Tipo de foro: {r.tema},<br/>
              Descripcion: {r.descripcion}
              </p>
            </GridItem>

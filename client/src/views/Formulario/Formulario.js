@@ -1,20 +1,28 @@
 import React, {useState, useEffect} from "react";
 // react plugin for creating charts
-
+//import { Redirect } from "react-router-dom";
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
 import Axios from 'axios';
-
+import { Redirect } from "react-router-dom";
 import { DiscussionEmbed } from 'disqus-react';
 import Button from "components/CustomButtons/Button.js";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import { TextField } from "@material-ui/core";
 const useStyles = makeStyles(styles);
+//import ReactDOM from "react-dom";
+//import User from "layouts/User.js";
+//import RTL from "layouts/RTL.js";
+
 
 //import {Redirect } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import GridItem from "components/Grid/GridItem.js";
 const currencies = [
+  {
+    value: 1,
+    label: ' ',
+},
   {
     value: 2,
     label: 'Actividades',
@@ -37,11 +45,16 @@ const [Crear,setCrear] = useState(0);
 
 useEffect(()=>{
 
-if(Crear)  {
+if(Crear){
   Axios.post('http://localhost:3001/create-post', {params:{Titulo: Titulo, Descripcion: Descripcion, Img: Img,IdentificadorForo :IdentificadorForo, Tema : Tema , Contenido : Contenido , id: window.userSesion[0].idUsuario }})
 
 }
+if (Crear){
+  {<Redirect to="/somewhere/else"/>}
+  setCrear(0);
+}
 })
+
 
   const classes = useStyles();
   return (
@@ -65,7 +78,7 @@ if(Crear)  {
                               <TextField
                      id="Selector de tipo de foro"
                      select
-                    onChange={(e)=>{setIdentificadorForo(e.target.value)}}
+
                      label="Tipo de foro"
                      SelectProps={{
                        native: true,
@@ -78,6 +91,7 @@ if(Crear)  {
                      margin="normal"
 
 
+                    onChange={(event) =>{setIdentificadorForo(event.target.value)}}
                    >
                      {currencies.map(option => (
                        <option key={option.value} value={option.value}>
@@ -87,8 +101,7 @@ if(Crear)  {
                      ))}
 
                    </TextField>
-                 <Button onClick={()=>setCrear(1)}  type="button" color="success">Crear Foro
-                 </Button>
+                 <Button onClick={()=>{setCrear(1)}}  type="button" color="success">Crear Foro</Button>
            </GridItem>
            </Grid>
           <TextField

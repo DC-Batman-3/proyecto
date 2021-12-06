@@ -17,9 +17,15 @@ import Cloud from "@material-ui/icons/Cloud";
 import Tabs from "components/CustomTabs/CustomTabs.js";
 import { DiscussionEmbed } from 'disqus-react';
 
+import ReactDOM from "react-dom";
+
+window.post=5;
 export default function Dashboard() {
 const [forosPost,GetForosPost]=useState([]);
-
+const rootElement = document.getElementById("root");
+ReactDOM.render(
+  rootElement
+);
 
   useEffect(()=>{
       Axios.get('http://localhost:3001/get-Posts', {params:{clave : 1 }}).then((response)=> {
@@ -54,7 +60,7 @@ const [forosPost,GetForosPost]=useState([]);
            <GridItem xs={12} sm={12} md={8} >
              <p>
              {r.titulo}<br/>
-             Tipo de foro: {r.idForo}<br/>
+             Tipo de foro: {r.tema}<br/>
              Descripcion: {r.descripcion}
              </p>
            </GridItem>
@@ -88,7 +94,7 @@ const [forosPost,GetForosPost]=useState([]);
            <GridItem xs={12} sm={12} md={8} >
              <p>
              {r.titulo},<br/>
-             Tipo de foro: {r.idForo},<br/>
+             Tipo de foro: {r.tema},<br/>
              Descripcion: {r.descripcion}
              </p>
            </GridItem>
@@ -122,7 +128,7 @@ const [forosPost,GetForosPost]=useState([]);
            <GridItem xs={12} sm={12} md={8} >
              <p>
              {r.titulo},<br/>
-             Tipo de foro: {r.idForo},<br/>
+             Tipo de foro: {r.tema},<br/>
              Descripcion: {r.descripcion}
              </p>
            </GridItem>
@@ -145,7 +151,7 @@ const [forosPost,GetForosPost]=useState([]);
             config={
                 {
                     url: 'http://localhost:3000/user/foros-sociales',
-                    identifier: 'foros Sosciales ID',
+                    identifier: 'foros Sociales ID',
                     title: 'Foros Sociales Titulo',
                     language: 'es_MX'
                 }
