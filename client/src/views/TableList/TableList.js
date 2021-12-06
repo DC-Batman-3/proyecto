@@ -104,18 +104,18 @@ const [forosPost,GetForosPost]=useState([]);
               tabIcon: Code,
               tabContent: (
 
-  forosPost.length!=0?forosPost.data.reverse().map((r,i)=>{
-   return(
-     <GridItem xs={12} sm={6} md={6} key={i}>
-     <Card key={i}>
-       <CardBody>
-         <GridContainer justifyContent="center">
-           <GridItem xs={12} sm={12} md={4} >
-             <img src={r.img} style={{maxHeight:184, maxWidth:184}}/>
-           </GridItem>
-           <GridItem xs={12} sm={12} md={8} >
-             <p>
-             {r.titulo},<br/>
+      forosPost.length!=0?forosPost.data.reverse().map((r,i)=>{
+       return(
+         <GridItem xs={12} sm={6} md={6} key={i}>
+         <Card key={i}>
+           <CardBody>
+             <GridContainer justifyContent="center">
+               <GridItem xs={12} sm={12} md={4} >
+                 <img src={r.img} style={{maxHeight:184, maxWidth:184}}/>
+               </GridItem>
+               <GridItem xs={12} sm={12} md={8} >
+                 <p>
+                 {r.titulo},<br/>
              Tipo de foro: {r.idForo},<br/>
              Descripcion: {r.descripcion}
              </p>

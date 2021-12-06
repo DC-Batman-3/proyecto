@@ -1,9 +1,9 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 // react plugin for creating charts
 
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
-
+import Axios from 'axios';
 
 import { DiscussionEmbed } from 'disqus-react';
 import Button from "components/CustomButtons/Button.js";
@@ -24,6 +24,18 @@ const currencies = [
 
 
 export default function Formulario() {
+
+const [IdentificadorForo,setIdentificadorForo] = useState([]);
+const [Descripcion,setDescripcion] = useState([]);
+const [Titulo,setTitulo] = useState([]);
+const [Img,setImg] = useState([]);
+const [Contenido,setContenido] = useState([]);
+const [Tema,setTema] = useState([]);
+
+useEffect(()=>{
+  Axios.post('http://localhost:3001/create-post', {params:{Titulo: Titulo, Descripcion: Descripcion, Img: Img,IdentificadorForo :IdentificadorForo, Tema : Tema , Contenido : Contenido  }})
+})
+
   const classes = useStyles();
   return (
     <div>
@@ -32,11 +44,18 @@ export default function Formulario() {
            <TextField
                      id="standard-uncontrolled"
                      label="Titulo"
-
+                     onChange={(e)=>{setTitulo(e.target.value)}}
                      className={classes.textField}
                      margin="normal"
                    />
-                   <TextField
+                    <TextField
+                    id="standard-uncontrolled"
+                    label="Titulo"
+                    onChange={(e)=>{setTema(e.target.value)}}
+                    className={classes.textField}
+                    margin="normal"
+                              />
+                              <TextField
                      id="Selector de tipo de foro"
                      select
                      label="Tipo de foro"
@@ -46,6 +65,7 @@ export default function Formulario() {
                          className: classes.menu,
                        },
                      }}
+                       onChange={(e)=>{setIdentificadorForo(e.target.value)}}
                      helperText="Revise que sea el correcto"
                      margin="normal"
                    >
@@ -61,6 +81,7 @@ export default function Formulario() {
           <TextField
          id="Campo descricion"
         helperText="Escribe aqui una descripcion"
+          onChange={(e)=>{setDescripcion(e.target.value)}}
          label="Descripcion"
          multiline
          rows="4"
@@ -69,11 +90,13 @@ export default function Formulario() {
          <TextField
           id="standard-uncontrolled"
            label="Link de la imagen a mostrar"
+            onChange={(e)=>{setImg(e.target.value)}}
             fullWidth
            className={classes.textField}
            margin=""
                  />
             <TextField
+             onChange={(e)=>{setContenido(e.target.value)}}
          id="Campo Contenido"
           helperText="Escribe aqui el contenido"
          label="Contenido"
@@ -82,6 +105,11 @@ export default function Formulario() {
          rows="37"
          margin="normal"
        />
+
+
+
+
+
         <DiscussionEmbed
             shortname='scoutsad'
             config={

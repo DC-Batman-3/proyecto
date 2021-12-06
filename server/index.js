@@ -166,7 +166,7 @@ app.get('/get-resultados-personas',function(req, res) {
 
 app.get('/get-Posts', function(req, res) {
 	const datos=req.query.clave;
-	const sqlSelect= "SELECT * FROM post WHERE seccionF=?";
+	const sqlSelect= "SELECT * FROM post WHERE IdForo=?";
 	connection.query(sqlSelect, [datos] , function(error, results, fields) {
 		console.log(results);
 		res.send(results);
