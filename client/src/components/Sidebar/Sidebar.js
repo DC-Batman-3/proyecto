@@ -29,7 +29,7 @@ export default function Sidebar(props) {
   const { color, logo, image, logoText, routes } = props;
   var links = (
     <List className={classes.list}>
-      {routes.filter(prop => prop.name !== 'Formulario').map((prop, key) => {
+      {routes.filter(prop => prop.name !== ('Formulario')).filter(prop => prop.name !== ('Vista')).map((prop, key) => {
         var activePro = " ";
         var listItemClasses;
         if (prop.path === "/upgrade-to-pro") {

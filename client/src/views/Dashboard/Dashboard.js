@@ -63,7 +63,6 @@ const [forosPost,GetForosPost]=useState([]);
              {r.titulo}<br/>
              Tipo de foro: {r.tema}<br/>
 
-             id post{r.idPost}
              Descripcion: {r.descripcion}
              </p>
            </GridItem>
