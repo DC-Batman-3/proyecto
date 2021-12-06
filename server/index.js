@@ -184,6 +184,27 @@ app.get('/get-user-info', function(req, res) {
 	});
 });
 
+
+app.post('/create-post', function(req, res) {
+	const	 id= req.body.params.id;
+	const titulo = req.body.params.Titulo;
+	const descripcion = req.body.params.Descripcion;
+	const img = req.body.params.Img;
+	const tema = req.body.params.Tema;
+	const contenido = req.body.params.Contenido;
+	const IdentificadorForo=req.body.params.IdentificadorForo;
+	//console.log(id);
+
+	const sqlInsert= "INSERT INTO `post`(descripcion,`img`,`titulo`,`contenido`,IdForo,`tema`,idUsuario ) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
+
+	connection.query(sqlInsert, [descripcion,img,titulo,contenido,IdentificadorForo,tema,id], function(error, results, fields) {
+		console.log(fields);
+		console.log(error);
+		res.send(results);
+	});
+});
+
+
 app.listen(PORT, () => {
 	console.log(`Server listening on ${PORT}`);
 });
