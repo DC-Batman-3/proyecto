@@ -91,7 +91,7 @@ app.post('/update-user',function(req, res) {
 		sqlUpdate = "UPDATE usuario SET img = ? WHERE idUsuario = ?"
 		connection.query(sqlUpdate, [img, id]);
 	}
-	
+
 })
 
 app.get('/get-foro',function(req, res) {
@@ -164,16 +164,50 @@ app.get('/get-resultados-personas',function(req, res) {
 	}
 })
 
+app.get('/get-Posts', function(req, res) {
+	const datos=req.query.clave;
+	const sqlSelect= "SELECT * FROM post WHERE IdForo=?";
+	connection.query(sqlSelect, [datos] , function(error, results, fields) {
+		res.send(results);
+	});
+});
+
+app.get('/get-Posts-unico', function(req, res) {
+	const datos=req.query.clave;
+	const sqlSelect= "SELECT * FROM post WHERE IdPost=?";
+	connection.query(sqlSelect, [datos] , function(error, results, fields) {
+		res.send(results);
+	});
+});
+
 app.get('/get-user-info', function(req, res) {
 	const idUser= req.query.ID;
 	const sqlSelect= "SELECT NombreCompleto, numTropa, seccion, descripcion, img FROM usuario WHERE idUsuario = ?";
 	connection.query(sqlSelect, [idUser], function(error, results, fields) {
-		console.log(results)
 		if(results.length>0){
 			res.send(results);
 		}
 	});
 });
+
+
+app.post('/create-post', function(req, res) {
+	const	 id= req.body.params.id;
+	const titulo = req.body.params.Titulo;
+	const descripcion = req.body.params.Descripcion;
+	const img = req.body.params.Img;
+	const tema = req.body.params.Tema;
+	const contenido = req.body.params.Contenido;
+	const IdentificadorForo=req.body.params.IdentificadorForo;
+	//console.log(id);
+
+	const sqlInsert= "INSERT INTO `post`(descripcion,`img`,`titulo`,`contenido`,IdForo,`tema`,idUsuario ) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
+
+	connection.query(sqlInsert, [descripcion,img,titulo,contenido,IdentificadorForo,tema,id], function(error, results, fields) {
+		res.send(results);
+	});
+});
+
 
 app.listen(PORT, () => {
 	console.log(`Server listening on ${PORT}`);

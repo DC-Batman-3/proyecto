@@ -21,7 +21,7 @@ import Person from "@material-ui/icons/Person";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import BubbleChart from "@material-ui/icons/BubbleChart";
 //import LocationOn from "@material-ui/icons/LocationOn";
-//import Notifications from "@material-ui/icons/Notifications";
+import Notifications from "@material-ui/icons/Notifications";
 //import Unarchive from "@material-ui/icons/Unarchive";
 //import Language from "@material-ui/icons/Language";
 // core components/views for Admin layout
@@ -30,6 +30,7 @@ import Formulario from "views/Formulario/Formulario.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import TableList from "views/TableList/TableList.js";
 import ChatLayout from "views/Chat/ChatLayout.js";
+import VistaForo from "views/VistaForo/VistaForo.js"
 import SearchLayout from "views/Search/SearchLayout.js";
 import Search from "@material-ui/icons/Search";
 
@@ -89,22 +90,14 @@ const dashboardRoutes = [
     component: Formulario,
     layout: "/user",
   },
-  /*{
-    path: "/maps",
-    name: "Maps",
-    rtlName: "خرائط",
-    icon: LocationOn,
-    component: Maps,
-    layout: "/admin",
-  },
   {
-    path: "/notifications",
-    name: "Notifications",
+    path: "/Vista-Foro",
+    name: "Vista",
     rtlName: "إخطارات",
     icon: Notifications,
-    component: NotificationsPage,
-    layout: "/admin",
-  },
+    component: VistaForo,
+    layout: "/user",
+  },/*
   {
     path: "/rtl-page",
     name: "RTL Support",

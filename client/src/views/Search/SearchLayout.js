@@ -88,7 +88,7 @@ const useStyles = makeStyles(styles);
 
 export default function SearchLayout() {
   const classes = useStyles();
-  
+
   //filtros
   const [filterResultados,setFilterResultados] = useState('Foros');
   const [tipoForo, setTipoForo] = useState(0);
@@ -102,13 +102,13 @@ export default function SearchLayout() {
   const [rBusquedaF,setRBusquedaF] = useState([]);
   const [rBusquedaU,setRBusquedaU] = useState([]);
   const [perfilUsuario, setPerfilUsuario]=useState([]);
-  
+
   //banderas
   const [getDatos, setGetDatos] = useState(1);
   const [getUsuario, setGetUsuario] = useState(0);
   const [iniBusqueda, setIniBusqueda] = useState(0);
   const [abrirModal, setAbrirModal] = useState(false);
-  
+
   const handleOpen = () => setAbrirModal(true);
   const handleClose = () => setAbrirModal(false);
 
@@ -150,18 +150,18 @@ export default function SearchLayout() {
       <Card>
         <CardHeader color="success" >
           <GridContainer  justifyContent="center">
-            
+
             <GridItem xs={12} sm={4} md={4} >
               <h4 className={classes.cardTitleWhite}>Busqueda de usuarios o foros</h4>
               <p className={classes.cardCategoryWhite}>
                 Predeterminado para buscar foros, si deseas buscar usuarios, marca la opción.
               </p>
-              <TextField onChange={(e)=>{setClave(e.target.value)}} className = {classes.floatingLabelFocusStyle} variant="filled" label = "Busqueda" formControlProps={{fullWidth: true}} width = "Fluid" style = {{width: '65%'}}/>  
+              <TextField onChange={(e)=>{setClave(e.target.value)}} className = {classes.floatingLabelFocusStyle} variant="filled" label = "Busqueda" formControlProps={{fullWidth: true}} width = "Fluid" style = {{width: '65%'}}/>
               <Button onClick={()=>setIniBusqueda(1)}variant="outlined" color="secondary" style = {{marginTop: "0.5em", marginLeft: "3em", marginRight: "3"}}>
                 Buscar
               </Button>
             </GridItem>
-            
+
             <GridItem xs={12} sm={4} md={4} >
               <FormControl component="fieldset" className={classes.formControl} style = {{marginTop: "2 vh"}}>
                 <FormLabel className = {classes.floatingLabelFocusStyle} component="legend">Resultados</FormLabel>
@@ -171,10 +171,10 @@ export default function SearchLayout() {
                 </RadioGroup>
               </FormControl>
             </GridItem>
-            
+
             <GridItem xs={12} sm={4} md={4} >
               <FormGroup>
-                
+
                 <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel style = {{marginTop: "1em"}} htmlFor="outlined-age-simple" className = {classes.select}>
                     Secciones
@@ -184,7 +184,7 @@ export default function SearchLayout() {
                     {secciones.length != 0 ? secciones.data.map((Seccion, i) => <MenuItem key={i} value={Seccion.seccion}>{Seccion.seccion}</MenuItem>):null}
                   </Select>
                 </FormControl>
-                
+
                 <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel style = {{marginTop: "1em"}} htmlFor="outlined-age-simple" className = {classes.select}>
                     Tipos de foro
@@ -200,12 +200,12 @@ export default function SearchLayout() {
 
           </GridContainer>
         </CardHeader>
-        
+
         <CardBody>
         <GridContainer justifyContent="center">
-          
+
           {
-            filterResultados === "Foros" ? 
+            filterResultados === "Foros" ?
               rBusquedaF.length!=0?rBusquedaF.data.reverse().map((r,i)=>{
                 return(
                   <GridItem xs={12} sm={6} md={6} key={i}>
@@ -269,7 +269,7 @@ export default function SearchLayout() {
         keepMounted
       >
         <GridContainer justify="center" alignItems="center" direction="column" style={
-          {minHeight: "100vh", 
+          {minHeight: "100vh",
           maxHeight: "auto",}}>
           <GridItem>
             <Card style={{maxWidth:300}} profile>
@@ -295,7 +295,7 @@ export default function SearchLayout() {
               </CardBody>
             </Card>
           </GridItem>
-        </GridContainer>         
+        </GridContainer>
       </Modal>
     </>
   );

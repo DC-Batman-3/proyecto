@@ -1,99 +1,161 @@
-
-import React from "react";
+import React, {useState, useEffect} from "react";
 // react plugin for creating charts
-
+import Axios from 'axios';
 // @material-ui/core
-import { makeStyles } from "@material-ui/core/styles";
+// @material-ui/icons
 
+//import Button from "components/CustomButtons/Button.js";
+import { NavLink } from 'react-router-dom';
+// core components
+import GridItem from "components/Grid/GridItem.js";
+import GridContainer from "components/Grid/GridContainer.js";
+import Card from "components/Card/Card.js";
+
+import CardBody from "components/Card/CardBody.js";
+
+import BugReport from "@material-ui/icons/BugReport";
+import Code from "@material-ui/icons/Code";
+import Cloud from "@material-ui/icons/Cloud";
+// core components
+import Tabs from "components/CustomTabs/CustomTabs.js";
 
 import { DiscussionEmbed } from 'disqus-react';
-import Button from "components/CustomButtons/Button.js";
-import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
-import TextField from '@material-ui/core/TextField';
-const useStyles = makeStyles(styles);
-import Grid from "@material-ui/core/Grid";
-import GridItem from "components/Grid/GridItem.js";
-const currencies = [
-  {
-    value: 'Actividades',
-    label: 'Actividades',
-  },
-  {
-    value: 'Social',
-    label: 'Social',
-}];
+export default function TableList() {
+
+const [forosPost,GetForosPost]=useState([]);
 
 
-export default function Formulario() {
-  const classes = useStyles();
+  useEffect(()=>{
+      Axios.get('http://localhost:3001/get-Posts', {params:{clave : 2 }}).then((response)=> {
+          GetForosPost(response);
+        })
+      })
+
+
   return (
     <div>
-    <Grid container>
-           <GridItem xs={12} sm={12} md={6}>
-           <TextField
-                     id="standard-uncontrolled"
-                     label="Titulo"
 
-                     className={classes.textField}
-                     margin="normal"
-                   />
-                   <TextField
-                     id="Selector de tipo de foro"
-                     select
-                     label="Tipo de foro"
-                     SelectProps={{
-                       native: true,
-                       MenuProps: {
-                         className: classes.menu,
-                       },
-                     }}
-                     helperText="Revise que sea el correcto"
-                     margin="normal"
-                   >
-                     {currencies.map(option => (
-                       <option key={option.value} value={option.value}>
-                         {option.label}
-                       </option>
-                     ))}
-                   </TextField>
-                 <Button type="button" color="success">Crear Foro</Button>
+        <NavLink to="/user/Formulario">Crear un Nuevo Foro</NavLink>
+
+  <h4> Todos los Foros </h4>
+      <Tabs
+          title="Ordenar:"
+          headerColor="success"
+          tabs={[
+            {
+              tabName: "Todos los Foros",
+              tabIcon: BugReport,
+              tabContent: (
+
+  forosPost.length!=0?forosPost.data.map((r,i)=>{
+   return(
+     <GridItem xs={12} sm={6} md={6} key={i}>
+     <Card key={i}>
+       <CardBody>
+         <GridContainer justifyContent="center">
+           <GridItem xs={12} sm={12} md={4} >
+             <img src={r.img} style={{maxHeight:184, maxWidth:184}}/>
            </GridItem>
+           <GridItem xs={12} sm={12} md={8} >
+             <p>
+             {r.titulo}<br/>
+             Tipo de foro: {r.tema}<br/>
+             Descripcion: {r.descripcion}
+             </p>
+           </GridItem>
+           <GridItem xs={6} sm={12} md={3}>
+               <NavLink to="/user/Vista-Foro" onClick={()=>{window.post=r.idPost}}>ver</NavLink>
+           </GridItem>
+         </GridContainer>
+       </CardBody>
+     </Card>
+     </GridItem>
+   ); //return map
+  }//llave del mapeo
+  ) : ()=> {return (<h4> Todos los Foros </h4>)})
 
 
-           </Grid>
+            },
+            {
+              tabName: "Mas nuevo",
+              tabIcon: Code,
+              tabContent: (
+
+      forosPost.length!=0?forosPost.data.reverse().map((r,i)=>{
+       return(
+         <GridItem xs={12} sm={6} md={6} key={i}>
+         <Card key={i}>
+           <CardBody>
+             <GridContainer justifyContent="center">
+               <GridItem xs={12} sm={12} md={4} >
+                 <img src={r.img} style={{maxHeight:184, maxWidth:184}}/>
+               </GridItem>
+               <GridItem xs={12} sm={12} md={8} >
+                 <p>
+                 {r.titulo},<br/>
+             Tipo de foro: {r.tema},<br/>
+             Descripcion: {r.descripcion}
+             </p>
+           </GridItem>
+           <GridItem xs={6} sm={12} md={3}>
+              <NavLink to="/user/Vista-Foro" onClick={()=>{window.post=r.idPost}}>ver</NavLink>
+           </GridItem>
+         </GridContainer>
+       </CardBody>
+     </Card>
+     </GridItem>
+   ); //return map
+  }//llave del mapeo
+  ) : ()=> {return (<h4> Todos los Foros </h4>)})
 
 
-          <TextField
-         id="Campo descricion"
-        helperText="Escribe aqui una descripcion"
-         label="Descripcion"
-         multiline
-         rows="4"
-         margin="normal"
-       />
-            <TextField
-         id="Campo Contenido"
-          helperText="Escribe aqui el contenido"
-         label="Contenido"
-         fullWidth
-         multiline
-         rows="37"
-         margin="normal"
-       />
+            },
+            {
+              tabName: "Mis foros",
+              tabIcon: Cloud,
+              tabContent: (
 
-
-        <DiscussionEmbed
-            shortname='scoutsad'
-            config={
-                {
-                    url: 'http://localhost:3000/user/foros-sociales',
-                    identifier: 'foros Sosciales ID',
-                    title: 'Foros Sociales Titulo',
-                    language: 'es_MX'
-                }
+  forosPost.length!=0?forosPost.data.filter(p=>window.userSesion[0].idUsuario==p.idUsuario).map((r,i)=>{
+   return(
+     <GridItem xs={12} sm={6} md={6} key={i}>
+     <Card key={i}>
+       <CardBody>
+         <GridContainer justifyContent="center">
+           <GridItem xs={12} sm={12} md={4} >
+             <img src={r.img} style={{maxHeight:184, maxWidth:184}}/>
+           </GridItem>
+           <GridItem xs={12} sm={12} md={8} >
+             <p>
+             {r.titulo},<br/>
+             Tipo de foro: {r.tema},<br/>
+             Descripcion: {r.descripcion}
+             </p>
+           </GridItem>
+           <GridItem xs={6} sm={12} md={3}>
+          <NavLink to="/user/Vista-Foro" onClick={()=>{window.post=r.idPost}}>ver</NavLink>
+           </GridItem>
+         </GridContainer>
+       </CardBody>
+     </Card>
+     </GridItem>
+   ); //return map
+  }//llave del mapeo
+  ) : ()=> {return (<h4> Todos los Foros </h4>)})
             }
+          ]}
         />
 
+    <DiscussionEmbed
+        shortname='scoutsad'
+        config={
+            {
+                url: 'http://localhost:3000/user/foros-actividades',
+                identifier: 'foros Actividades ID',
+                title: 'Foros Actividades Titulo',
+                language: 'es_MX'
+            }
+        }
+    />
     </div>
   );
 }
