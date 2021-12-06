@@ -40,6 +40,9 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 
 const useStyles = makeStyles(styles);
 
+
+
+
 export default function Dashboard() {
   const classes = useStyles();
 
@@ -128,7 +131,8 @@ const [forosPost,GetForosPost]=useState([]);
               tabName: "Mas Visto",
               tabIcon: BugReport,
               tabContent: (
-  forosPost.data.map((r,i)=>{
+
+  forosPost.length!=0?forosPost.data.map((r,i)=>{
    return(
      <GridItem xs={12} sm={6} md={6} key={i}>
      <Card key={i}>
@@ -151,7 +155,9 @@ const [forosPost,GetForosPost]=useState([]);
        </CardBody>
      </Card>
      </GridItem>
-   );}))
+   ); //return map
+ }//llave del mapeo
+) : ()=> {return (<h4> Todos los Foros </h4>)})
 
 
             },
