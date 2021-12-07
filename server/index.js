@@ -9,12 +9,12 @@ const mysql = require('mysql');
 var connection = mysql.createPool({
 	host     : 'localhost',
 	user     : 'root',
-	password : '',
+	password : '1234',
 	database : 'scouts'
 });
 
 
-const PORT = process.env.PORT || 3001;
+const PORT = 8989;
 
 app.use(cors());
 app.use(express.json());
@@ -69,6 +69,8 @@ app.get('/auth', function(req, res) {
 	const user= req.query.Usuario;
 	const password = req.query.Contraseña;
 	const sqlSelect= "SELECT * FROM usuario WHERE Usuario = ? AND Contraseña = ?";
+	console.log(user);
+	console.log(password);
 	if (user && password) {
 		connection.query(sqlSelect, [user, password], function(error, results, fields) {
 			if(results.length>0){
@@ -210,5 +212,9 @@ app.post('/create-post', function(req, res) {
 
 
 app.listen(PORT, () => {
-	console.log(`Server listening on ${PORT}`);
+	console.log(`Server listening on `+ PORT);
+	const sqlSelect= "SELECT * FROM usuario";
+	connection.query(sqlSelect, function(error, results, fields) {
+		console.log(error);
+	});
 });

@@ -115,10 +115,10 @@ export default function SearchLayout() {
   useEffect(()=>{
     //get filtros
     if(getDatos){
-      Axios.get('http://localhost:3001/get-foro').then((response)=> {
+      Axios.get(window.backend+'/get-foro').then((response)=> {
         setForo(response);
       })
-      Axios.get('http://localhost:3001/get-secciones').then((response)=> {
+      Axios.get(window.backend+'/get-secciones').then((response)=> {
         setSecciones(response);
       })
       setGetDatos(0);
@@ -127,11 +127,11 @@ export default function SearchLayout() {
     //get resultados
     if(iniBusqueda){
       if(filterResultados==="Foros"){
-        Axios.get('http://localhost:3001/get-resultados-foro', {params:{Clave: clave, Tipo: tipoForo}}).then((response)=> {
+        Axios.get(window.backend+'/get-resultados-foro', {params:{Clave: clave, Tipo: tipoForo}}).then((response)=> {
           setRBusquedaF(response);
         })
       }else{
-        Axios.get('http://localhost:3001/get-resultados-personas', {params:{Clave: clave, Seccion: fSeccion}}).then((response)=> {
+        Axios.get(window.backend+'/get-resultados-personas', {params:{Clave: clave, Seccion: fSeccion}}).then((response)=> {
           setRBusquedaU(response);
       })}
       setIniBusqueda(0);
@@ -139,7 +139,7 @@ export default function SearchLayout() {
 
     //get-usuario
     if(getUsuario){
-      Axios.get('http://localhost:3001/get-user-info', {params:{ID: idUsuario}}).then((response)=> {
+      Axios.get(window.backend+'/get-user-info', {params:{ID: idUsuario}}).then((response)=> {
           setPerfilUsuario(response);
       })
       setGetUsuario(0);

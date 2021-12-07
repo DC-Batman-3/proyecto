@@ -26,7 +26,7 @@ const [forosPost,GetForosPost]=useState([]);
 
 
   useEffect(()=>{
-      Axios.get('http://localhost:3001/get-Posts', {params:{clave : 2 }}).then((response)=> {
+      Axios.get(window.backend+'/get-Posts', {params:{clave : 2 }}).then((response)=> {
           GetForosPost(response);
         })
       })

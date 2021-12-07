@@ -44,7 +44,7 @@ export default function UserProfile() {
   const [profilePic, setProfilePic] = useState(window.userSesion[0].img);
   
   useEffect(()=>{
-    Axios.post('http://localhost:3001/update-user', {params:{about: about_text, id: window.userSesion[0].idUsuario, imagen: profilePic}})
+    Axios.post(window.backend+'/update-user', {params:{about: about_text, id: window.userSesion[0].idUsuario, imagen: profilePic}})
   })
 
   return (

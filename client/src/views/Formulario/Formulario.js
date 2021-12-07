@@ -46,7 +46,7 @@ const [Crear,setCrear] = useState(0);
 useEffect(()=>{
 
 if(Crear){
-  Axios.post('http://localhost:3001/create-post', {params:{Titulo: Titulo, Descripcion: Descripcion, Img: Img,IdentificadorForo :IdentificadorForo, Tema : Tema , Contenido : Contenido , id: window.userSesion[0].idUsuario }})
+  Axios.post(window.backend+'/create-post', {params:{Titulo: Titulo, Descripcion: Descripcion, Img: Img,IdentificadorForo :IdentificadorForo, Tema : Tema , Contenido : Contenido , id: window.userSesion[0].idUsuario }})
 
 }
 if (Crear){

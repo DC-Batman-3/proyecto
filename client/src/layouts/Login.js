@@ -25,7 +25,7 @@ import styles from "assets/jss/material-dashboard-react/cardImagesStyles.js";
 const useStyles = makeStyles(styles);
 
 window.userSesion = [];
-
+window.backend = 'http://54.166.177.90:8989';
 
 
 function funcion(){
@@ -33,7 +33,7 @@ function funcion(){
     const [ password,setPassword ] = useState("");
 
     useEffect(()=>{
-        Axios.get('http://localhost:3001/auth', {params:{Usuario: user, Contraseña: password}}).then((response)=> {
+        Axios.get(window.backend+'/auth', {params:{Usuario: user, Contraseña: password}}).then((response)=> {
             window.userSesion = response.data;
         })
     })

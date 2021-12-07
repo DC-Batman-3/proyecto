@@ -22,7 +22,7 @@ export default function VistaForo() {
 const [forosPost,GetForosPost]=useState([]);
 
     useEffect(()=>{
-        Axios.get('http://localhost:3001/get-Posts-unico', {params:{clave : window.post }}).then((response)=> {
+        Axios.get(window.backend+'/get-Posts-unico', {params:{clave : window.post }}).then((response)=> {
             GetForosPost(response);
           })
         })
